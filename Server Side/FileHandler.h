@@ -13,7 +13,7 @@
 class FileHandler {
 public:
     static std::vector<std::string> splitLine(const std::string& line, char delimiter);
-    static std::vector<Measurable> getFlowers(const string& fileName);
+    static std::vector<Measurable> getMeasurables(const string& fileName);
     static Measurable createMeasurableFromClassified(const string& line);
     static Measurable createMeasurableFromUnclassified(string line);
     static void scan(const vector<Measurable>& measurables, fstream& fs, int k, Metric& func);

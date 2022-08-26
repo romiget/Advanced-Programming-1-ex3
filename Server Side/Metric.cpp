@@ -7,3 +7,7 @@
 double Metric::metric(vector<double> l1, vector<double> l2) const {
     throw exception();
 }
+
+string& Metric::getType() {
+    throw exception();
+}

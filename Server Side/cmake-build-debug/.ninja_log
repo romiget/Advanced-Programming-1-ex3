@@ -1,11 +1,11 @@
 # ninja log v5
-0	160	1660309682069465074	CMakeFiles/Server_Side.dir/Metric.cpp.o	2ad537dc16b253f5
+239	701	1660309682609464965	CMakeFiles/Server_Side.dir/MeasurableList.cpp.o	9b8a761015c7176c
+0	497	1660309682409465006	CMakeFiles/Server_Side.dir/main.cpp.o	1edb29a23d42881a
+269	832	1660309682741464938	CMakeFiles/Server_Side.dir/FileHandler.cpp.o	e8ce65571910efac
+0	306	1660309682217465045	CMakeFiles/Server_Side.dir/Flower.cpp.o	598484ffd3935562
+0	569	1660309682481464991	CMakeFiles/Server_Side.dir/Measurable.cpp.o	29c623b3bc5fd27b
 7	238	1660309682149465058	CMakeFiles/Server_Side.dir/ManhattanMetric.cpp.o	a7990978d8c82b00
 0	269	1660309682181465052	CMakeFiles/Server_Side.dir/EuclideanMetric.cpp.o	ccd6e91a3b81a633
-0	306	1660309682217465045	CMakeFiles/Server_Side.dir/Flower.cpp.o	598484ffd3935562
 160	368	1660309682277465033	CMakeFiles/Server_Side.dir/ChebyshevMetric.cpp.o	26d758f4d3be4586
-0	497	1660309682409465006	CMakeFiles/Server_Side.dir/main.cpp.o	1edb29a23d42881a
-0	569	1660309682481464991	CMakeFiles/Server_Side.dir/Measurable.cpp.o	29c623b3bc5fd27b
-239	701	1660309682609464965	CMakeFiles/Server_Side.dir/MeasurableList.cpp.o	9b8a761015c7176c
-269	832	1660309682741464938	CMakeFiles/Server_Side.dir/FileHandler.cpp.o	e8ce65571910efac
+0	160	1660309682069465074	CMakeFiles/Server_Side.dir/Metric.cpp.o	2ad537dc16b253f5
 832	914	1660309682825464921	Server_Side	3631b5a7c3ce0a6e

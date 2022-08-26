@@ -16,3 +16,8 @@ double EuclideanMetric::metric(vector<double> l1, vector<double> l2) const {
     }
     return sqrt(distance);
 }
+
+string& EuclideanMetric::getType() {
+    string type = "EUC";
+    return type;
+}

@@ -14,3 +14,8 @@ double ManhattanMetric::metric(vector<double> l1, vector<double> l2) const {
     }
     return distance;
 }
+
+string& ManhattanMetric::getType() {
+    string type = "MAN";
+    return type;
+}
