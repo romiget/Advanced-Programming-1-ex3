@@ -5,7 +5,7 @@
 #ifndef SERVER_SIDE_COMMAND_H
 #define SERVER_SIDE_COMMAND_H
 #include <string>
-#include "DefaultIO.h"
+#include "../IO/DefaultIO.h"
 using namespace std;
 
 class Command {

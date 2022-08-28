@@ -6,9 +6,9 @@
 #include <fstream>
 #include <iostream>
 #include "FileHandler.h"
-#include "EuclideanMetric.h"
-#include "ChebyshevMetric.h"
-#include "ManhattanMetric.h"
+#include "../Metrics/EuclideanMetric.h"
+#include "../Metrics/ChebyshevMetric.h"
+#include "../Metrics/ManhattanMetric.h"
 #include "MeasurableList.h"
 #include <utility>
 #include <algorithm>

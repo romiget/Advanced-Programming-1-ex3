@@ -7,9 +7,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include "FileHandler.h"
+#include "KNN Algorithm/FileHandler.h"
 #include <exception>
-#include "EuclideanMetric.h"
+#include "Metrics/EuclideanMetric.h"
 
 using namespace std;
 int main(int argc, char* argv[]) {

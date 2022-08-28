@@ -4,7 +4,7 @@
 
 #include "Measurable.h"
 #include <string>
-#include "Metric.h"
+#include "../Metrics/Metric.h"
 #include <sstream>
 
 using namespace std;

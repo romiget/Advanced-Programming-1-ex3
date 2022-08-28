@@ -18,7 +18,7 @@
 #include <string>
 #include <list>
 #include <vector>
-#include "Metric.h"
+#include "../Metrics/Metric.h"
 
 using namespace std;
 class Measurable {

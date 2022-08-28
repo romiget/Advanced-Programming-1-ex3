@@ -9,7 +9,9 @@
 
 #ifndef ADVANCED_PROGRAMMING_1_FILEHANDLER_H
 #define ADVANCED_PROGRAMMING_1_FILEHANDLER_H
-#include "Flower.h"
+
+#include "Measurable.h"
+
 class FileHandler {
 public:
     static std::vector<std::string> splitLine(const std::string& line, char delimiter);

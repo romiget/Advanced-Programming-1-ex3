@@ -4,7 +4,7 @@
 
 using namespace std;
 #include "ChangeParameters.h"
-#include "DefaultIO.h"
+#include "../IO/DefaultIO.h"
 
 void ChangeParameters::execute() {
     this->getIO().write("The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric());
