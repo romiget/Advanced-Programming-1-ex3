@@ -45,9 +45,9 @@ void Communication::changeCurrentParameters(int val, string &metric) {
     } else {
         cout << "invalid value for k" << endl;
     }
-    if (metric == "EUC") this->func = EuclideanMetric();
-    else if (metric == "CHE") this->func = ChebyshevMetric();
-    else if (metric == "MAN") this->func = ManhattanMetric();
+    if (metric == (string &) "EUC") this->func = EuclideanMetric();
+    else if (metric == (string &) "CHE") this->func = ChebyshevMetric();
+    else if (metric == (string &) "MAN") this->func = ManhattanMetric();
     else cout << "no such metric" << endl;
 }
 

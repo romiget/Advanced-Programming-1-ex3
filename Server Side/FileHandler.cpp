@@ -73,28 +73,6 @@ void FileHandler::classify(Measurable& measured, const vector<Measurable>& measu
 }
 
 string FileHandler::knnCheck(const vector<Measurable>& measurables) {
-    /*pair<int, string> setosa = {0, "Iris-setosa"};
-    pair<int, string> versicolor = {0, "Iris-versicolor"};
-    pair<int, string> virginica = {0, "Iris-virginica"};
-    for (auto & measurable : measurables) {
-        if (measurable.getType() == "Iris-setosa")
-            setosa.first++;
-        else if (measurable.getType() == "Iris-versicolor")
-            versicolor.first++;
-        else if (measurable.getType() == "Iris-virginica")
-            virginica.first++;
-    }
-    pair<int, string> maximum;
-    if (setosa > versicolor)
-        maximum = setosa;
-    else
-        maximum = versicolor;
-    if (virginica > maximum)
-        maximum = virginica;
-    return maximum.second;*/
-
-    // old code, delete later
-
     vector<string> types;
     vector<int> counts;
     for (Measurable m : measurables) {

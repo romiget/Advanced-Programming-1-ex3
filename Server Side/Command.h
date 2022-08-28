@@ -9,10 +9,12 @@
 using namespace std;
 
 class Command {
-private:
     string& description;
     DefaultIO& defaultIo;
 public:
     virtual void execute();
+    string getDescription();
+    Command(DefaultIO &defaultIo, string &description);
+    DefaultIO& getIO();
 };
 #endif //SERVER_SIDE_COMMAND_H
