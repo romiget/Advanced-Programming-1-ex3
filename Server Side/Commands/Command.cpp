@@ -13,13 +13,13 @@ string Command::getDescription() {
     return this->description;
 }
 
-Command::Command(DefaultIO &defaultIo, string &description)
-        : defaultIo(defaultIo), description(description) {
+Command::Command(DefaultIO &Io, string &description)
+        : Io(Io), description(description) {
     this->description = description;
-    this->defaultIo = defaultIo;
+    this->Io = Io;
 }
 
 DefaultIO &Command::getIO() {
-    return this->defaultIo;
+    return this->Io;
 }
 
