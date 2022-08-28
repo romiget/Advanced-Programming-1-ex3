@@ -9,14 +9,22 @@ using namespace std;
 void ChangeParameters::execute() {
     this->getIO().write("The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric());
     string input = this->getIO().read();
+    bool flag = false;
     if (input.empty()) return;
     try {
-        if (input[1] == ' ') {
+        if (input[1] == ' ' || stoi(input.substr(0, 2)) == 10) {
             this->setK(input[0] - '0');
+            if (this->getK() == 10)
+                flag = true;
         } else {
             this->getIO().write("Invalid value for K");
         }
-        string metric = input.substr(2, 3);
+        string metric;
+        if (flag) {
+            metric = input.substr(3, 3);
+        } else {
+            metric = input.substr(2, 3);
+        }
         if (metric == "EUC" || metric == "MAN" || metric == "CHE")
             this->setMetric(metric);
         else
