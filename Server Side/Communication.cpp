@@ -62,7 +62,9 @@ void Communication::printClassifications() {
     string line;
     int row = 1;
     while(getline(fs, line)) {
-        cout << row << " " << line << endl;
+        cout << row << "\t" << line << endl;
         row++;
     }
+    cout << "Done." << endl;
+    fs.close();
 }
