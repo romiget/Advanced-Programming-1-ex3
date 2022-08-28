@@ -22,6 +22,7 @@ void CLI::start() {
             s.append((commands.begin() + i - 1)->getDescription());
             s.append("\n");
         }
+        io.write(s);
         choice = stoi(io.read());
         (commands.begin() + choice - 1)->execute();
     }
