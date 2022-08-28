@@ -13,3 +13,8 @@ void DefaultIO::write(string str) {
     //should've overridden that.
     throw exception();
 }
+
+void DefaultIO::end() {
+    // should've overridden that.
+    throw exception();
+}

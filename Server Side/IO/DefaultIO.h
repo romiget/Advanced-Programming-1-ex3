@@ -12,5 +12,6 @@ class DefaultIO {
 public:
     virtual string read();
     virtual void write(string str);
+    virtual void end();
 };
 #endif //SERVER_SIDE_DEFAULTIO_H
