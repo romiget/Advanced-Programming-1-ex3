@@ -16,5 +16,7 @@ public:
     void setK(int k);
     string& getMetric();
     void setMetric(string& name);
+    explicit ChangeParameters(DefaultIO &io);
+    string getDescription() override;
 };
 #endif //SERVER_SIDE_CHANGEPARAMETERS_H

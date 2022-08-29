@@ -9,5 +9,7 @@
 class UploadFile : public Command {
 public:
     void execute() override;
+    explicit UploadFile(DefaultIO& io);
+    string getDescription() override;
 };
 #endif //SERVER_SIDE_UPLOADFILE_H
