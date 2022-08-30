@@ -5,11 +5,17 @@
 #include "UploadFile.h"
 
 void UploadFile::execute() {
-
+    this->getIO().write("Please upload your local train CSV file.");
+    string fileName = this->getIO().read();
+    //to-do, upload
+    this->getIO().write("Upload complete.");
+    this->getIO().write("Please upload your local test CSV file.");
+    fileName = this->getIO().read();
+    //to-do, upload
+    this->getIO().write("Upload complete");
 }
 
 UploadFile::UploadFile(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 string UploadFile::getDescription() {

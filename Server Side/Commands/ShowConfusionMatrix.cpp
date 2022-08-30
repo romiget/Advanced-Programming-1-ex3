@@ -5,7 +5,6 @@
 #include "ShowConfusionMatrix.h"
 
 ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 string ShowConfusionMatrix::getDescription() {

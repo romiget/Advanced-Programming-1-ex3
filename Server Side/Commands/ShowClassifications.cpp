@@ -5,7 +5,6 @@
 #include "ShowClassifications.h"
 
 ShowClassifications::ShowClassifications(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 string ShowClassifications::getDescription() {

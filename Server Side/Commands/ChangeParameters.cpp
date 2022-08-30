@@ -7,7 +7,8 @@ using namespace std;
 #include "../IO/DefaultIO.h"
 
 void ChangeParameters::execute() {
-    this->getIO().write("The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric());
+    this->getIO().write(
+            "The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric());
     string input = this->getIO().read();
     bool flag = false;
     if (input.empty()) return;
@@ -29,28 +30,12 @@ void ChangeParameters::execute() {
             this->setMetric(metric);
         else
             this->getIO().write("Invalid metric name");
-    } catch (exception& e) {
+    } catch (exception &e) {
         this->getIO().write("Invalid input");
     }
 }
 
-int ChangeParameters::getK() {
-    return this->k;
-}
-string& ChangeParameters::getMetric() {
-    return this->metricName;
-}
-
-void ChangeParameters::setK(int k) {
-    this->k = k;
-}
-
-void ChangeParameters::setMetric(string &name) {
-    this->metricName = name;
-}
-
 ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 string ChangeParameters::getDescription() {

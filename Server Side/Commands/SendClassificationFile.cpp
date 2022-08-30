@@ -5,7 +5,6 @@
 #include "SendClassificationFile.h"
 
 SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 string SendClassificationFile::getDescription() {

@@ -20,3 +20,18 @@ DefaultIO &Command::getIO() {
 Command::Command(DefaultIO &io) {
     this->io = io;
 }
+
+int Command::getK() {
+    return this->k;
+}
+string& Command::getMetric() {
+    return this->metricName;
+}
+
+void Command::setK(int k) {
+    this->k = k;
+}
+
+void Command::setMetric(string &name) {
+    this->metricName = name;
+}

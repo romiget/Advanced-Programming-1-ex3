@@ -8,5 +8,8 @@ using namespace std;
 
 
 ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {
-    this->io = io;
+}
+
+string ClassifyFile::getDescription() {
+    return "classify data";
 }

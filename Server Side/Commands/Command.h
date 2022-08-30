@@ -9,13 +9,19 @@
 using namespace std;
 
 class Command {
-protected:
+private:
     string description;
     DefaultIO io;
+    int k = 5;
+    string& metricName = (string &) "EUC";
 public:
     virtual void execute();
     virtual string getDescription();
     virtual DefaultIO& getIO();
-    Command(DefaultIO& io);
+    explicit Command(DefaultIO& io);
+    int getK();
+    void setK(int k);
+    string& getMetric();
+    void setMetric(string& name);
 };
 #endif //SERVER_SIDE_COMMAND_H
