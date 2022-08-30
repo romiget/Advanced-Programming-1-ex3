@@ -5,10 +5,20 @@
 #include "CLI.h"
 #include "Commands/UploadFile.h"
 #include "Commands/ChangeParameters.h"
+#include "Commands/ClassifyFile.h"
+#include "Commands/ShowClassifications.h"
+#include "Commands/SendClassificationFile.h"
+#include "Commands/ShowConfusionMatrix.h"
+#include "Commands/EndInteraction.h"
 
 void CLI::init() {
-    commands.push_back(UploadFile());
-    commands.push_back(ChangeParameters());
+    commands.push_back(UploadFile(io));
+    commands.push_back(ChangeParameters(io));
+    commands.push_back(ClassifyFile(io));
+    commands.push_back(ShowClassifications(io));
+    commands.push_back(SendClassificationFile(io));
+    commands.push_back(ShowConfusionMatrix(io));
+    commands.push_back(EndInteraction(io));
 }
 
 void CLI::start() {
@@ -22,6 +32,7 @@ void CLI::start() {
             s.append((commands.begin() + i - 1)->getDescription());
             s.append("\n");
         }
+        io.write(s);
         choice = stoi(io.read());
         (commands.begin() + choice - 1)->execute();
     }

@@ -48,3 +48,11 @@ void ChangeParameters::setK(int k) {
 void ChangeParameters::setMetric(string &name) {
     this->metricName = name;
 }
+
+ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {
+    this->io = io;
+}
+
+string ChangeParameters::getDescription() {
+    return "algorithm settings";
+}

@@ -10,7 +10,7 @@ using namespace std;
 
 class DefaultIO {
 public:
-    virtual string read();
+    virtual string& read();
     virtual void write(string str);
     virtual void end();
 };

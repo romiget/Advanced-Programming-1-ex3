@@ -4,7 +4,7 @@
 
 #include "DefaultIO.h"
 
-string DefaultIO::read() {
+string& DefaultIO::read() {
     //should've overridden that.
     throw exception();
 }

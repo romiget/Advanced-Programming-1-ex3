@@ -14,6 +14,9 @@ string Command::getDescription() {
 }
 
 DefaultIO &Command::getIO() {
-    return this->defaultIo;
+    return this->io;
 }
 
+Command::Command(DefaultIO &io) {
+    this->io = io;
+}
