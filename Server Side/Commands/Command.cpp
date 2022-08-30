@@ -24,14 +24,25 @@ Command::Command(DefaultIO &io) {
 int Command::getK() {
     return this->k;
 }
-string& Command::getMetric() {
-    return this->metricName;
+Metric& Command::getMetric() {
+    return this->metric;
 }
 
 void Command::setK(int k) {
     this->k = k;
 }
 
+void Command::setMetric(Metric &metric) {
+    this->metric = metric;
+}
+
 void Command::setMetric(string &name) {
-    this->metricName = name;
+    if (name == "EUC")
+        this->metric = EuclideanMetric();
+    else if (name == "MAN")
+        this->metric = ManhattanMetric();
+    else if (name == "CHE")
+        this->metric = ChebyshevMetric();
+    else
+        throw exception();
 }

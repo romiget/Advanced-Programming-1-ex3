@@ -6,11 +6,10 @@
 
 
 EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
-    this->io = io;
 }
 
 void EndInteraction::execute() {
-    io.end();
+    this->getIO().end();
 }
 
 string EndInteraction::getDescription() {

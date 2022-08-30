@@ -6,6 +6,11 @@
 #define SERVER_SIDE_COMMAND_H
 #include <string>
 #include "../IO/DefaultIO.h"
+#include "../Metrics/Metric.h"
+#include "../Metrics/EuclideanMetric.h"
+#include "../Metrics/ManhattanMetric.h"
+#include "../Metrics/ChebyshevMetric.h"
+
 using namespace std;
 
 class Command {
@@ -13,7 +18,7 @@ private:
     string description;
     DefaultIO io;
     int k = 5;
-    string& metricName = (string &) "EUC";
+    Metric metric = EuclideanMetric();
 public:
     virtual void execute();
     virtual string getDescription();
@@ -21,7 +26,8 @@ public:
     explicit Command(DefaultIO& io);
     int getK();
     void setK(int k);
-    string& getMetric();
+    Metric& getMetric();
+    void setMetric(Metric& metric);
     void setMetric(string& name);
 };
 #endif //SERVER_SIDE_COMMAND_H
