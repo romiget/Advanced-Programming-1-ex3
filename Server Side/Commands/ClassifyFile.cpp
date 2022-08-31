@@ -5,8 +5,6 @@
 #include <fstream>
 #include "ClassifyFile.h"
 #include "../KNN Algorithm/FileHandler.h"
-#include "../KNN Algorithm/Measurable.h"
-#include "../KNN Algorithm/MeasurableList.h"
 
 using namespace std;
 
