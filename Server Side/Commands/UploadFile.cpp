@@ -11,7 +11,6 @@ void UploadFile::execute() {
 
     io.write("train:");
     string fileName = io.read();
-    //to-do, upload
     in.open(fileName, ios::in);
     out.open("data.csv", ios::trunc);
     while(getline(in, str)) {
@@ -24,7 +23,6 @@ void UploadFile::execute() {
     fileName = this->getIO().read();
     in.open(fileName, ios::in);
     out.open("unclassified.csv", ios::trunc);
-    //to-do, upload
     while(getline(in, str)) {
         out << str << endl;
     }

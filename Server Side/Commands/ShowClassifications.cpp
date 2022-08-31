@@ -15,9 +15,6 @@ string ShowClassifications::getDescription() {
 void ShowClassifications::execute() {
     fstream fs;
     fs.open("classified.csv", ios::in);
-    if (!fs) {
-        perror("Can't open file.");
-    }
     string str;
     while(getline(fs, str)) {
         io.write(str);
