@@ -6,12 +6,13 @@
 #define SERVER_SIDE_SHOWCONFUSIONMATRIX_H
 
 #include "Command.h"
+#include "../KNN Algorithm/Measurable.h"
 
 class ShowConfusionMatrix : public Command {
+    void createConfusionMatrix(const vector<Measurable>& realTypes, const vector<Measurable>& KNNTypes);
 public:
     void execute() override;
     string getDescription() override;
-    DefaultIO& getIO() override;
     explicit ShowConfusionMatrix(DefaultIO& io);
 };
 

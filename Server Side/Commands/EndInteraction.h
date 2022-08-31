@@ -11,7 +11,6 @@ class EndInteraction : public Command {
 public:
     void execute() override;
     string getDescription() override;
-    DefaultIO& getIO() override;
     explicit EndInteraction(DefaultIO& io);
 };
 
