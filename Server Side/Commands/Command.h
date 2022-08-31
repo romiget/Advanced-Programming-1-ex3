@@ -16,9 +16,10 @@ using namespace std;
 class Command {
 private:
     string description;
-    DefaultIO io;
     int k = 5;
     Metric metric = EuclideanMetric();
+protected:
+    DefaultIO io;
 public:
     virtual void execute();
     virtual string getDescription();

@@ -3,10 +3,21 @@
 //
 
 #include "SendClassificationFile.h"
+#include <fstream>
 
 SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
 }
 
 string SendClassificationFile::getDescription() {
     return "download results";
+}
+
+void SendClassificationFile::execute() {
+    fstream fs;
+    fs.open("classified.csv", ios::in);
+    string str;
+    while(getline(fs, str)) {
+        io.write(str);
+    }
+    fs.close();
 }

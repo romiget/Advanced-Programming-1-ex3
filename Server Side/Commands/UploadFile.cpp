@@ -3,15 +3,33 @@
 //
 
 #include "UploadFile.h"
+#include <fstream>
 
 void UploadFile::execute() {
-    this->getIO().write("Please upload your local train CSV file.");
-    string fileName = this->getIO().read();
+    fstream in, out;
+    string str;
+
+    io.write("train:");
+    string fileName = io.read();
     //to-do, upload
-    this->getIO().write("Upload complete.");
-    this->getIO().write("Please upload your local test CSV file.");
+    in.open(fileName, ios::in);
+    out.open("data.csv", ios::trunc);
+    while(getline(in, str)) {
+        out << str << endl;
+    }
+    out.close();
+    in.close();
+    io.write("Upload complete.");
+    io.write("unclassified:");
     fileName = this->getIO().read();
+    in.open(fileName, ios::in);
+    out.open("unclassified.csv", ios::trunc);
     //to-do, upload
+    while(getline(in, str)) {
+        out << str << endl;
+    }
+    out.close();
+    in.close();
     this->getIO().write("Upload complete");
 }
 
