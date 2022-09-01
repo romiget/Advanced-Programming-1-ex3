@@ -20,7 +20,7 @@ void ClassifyFile::execute() {
     }
 }
 
-ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {
+ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io, <#initializer#>) {
 }
 
 string ClassifyFile::getDescription() {
