@@ -6,6 +6,8 @@
 #include <cmath>
 #include "ShowConfusionMatrix.h"
 #include "../KNN Algorithm/FileHandler.h"
+#include <map>
+#include <algorithm>
 
 void ShowConfusionMatrix::execute() {
     std::vector<Measurable> realTypes = FileHandler::getMeasurables("data.csv");
@@ -29,45 +31,45 @@ string ShowConfusionMatrix::getDescription() {
 }
 
 void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTypes, const vector<Measurable>& KNNTypes) {
-    int realTypesCounter[3];
-    int KNNTypesCounter[3][3];
-    for (int i = 0; i < realTypes.size(); i++) {
-        if (realTypes[i].getType() == "Iris-setosa") {
-            realTypesCounter[0]++;
-            if (KNNTypes[i].getType() == "Iris-setosa") {
-                KNNTypesCounter[0][0]++;
-            } else if (KNNTypes[i].getType() == "Iris-versicolor")
-                KNNTypesCounter[0][1]++;
-            else
-                KNNTypesCounter[0][2]++;
-        } else if (realTypes[i].getType() == "Iris-versicolor") {
-            realTypesCounter[1]++;
-            if (KNNTypes[i].getType() == "Iris-setosa")
-                KNNTypesCounter[1][0]++;
-            else if (KNNTypes[i].getType() == "Iris-versicolor")
-                KNNTypesCounter[1][1]++;
-            else
-                KNNTypesCounter[1][2]++;
-        } else {
-            realTypesCounter[2]++;
-            if (KNNTypes[i].getType() == "Iris-setosa")
-                KNNTypesCounter[2][0]++;
-            else if(KNNTypes[i].getType() == "Iris-versicolor")
-                KNNTypesCounter[2][1]++;
-            else
-                KNNTypesCounter[2][2]++;
+    vector<int> realTypesCounter;
+    vector<string> types;
+    vector<vector<int>> KNNTypesCounter;
+
+    vector<int> zeros;
+    for (const Measurable & realType : realTypes) {
+        if(find(types.begin(), types.end(), realType.getType()) == types.end()) {
+            types.push_back(realType.getType());
+            zeros.push_back(0);
         }
     }
-    this->getIO().write("\t\tIris-setosa Iris-versicolor Iris-virginica\n");
-    string lines[3];
-    lines[0] = "Iris-setosa\t";
-    lines[1] = "Iris-versicolor\t";
-    lines[2] = "Iris-virginica\t";
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
+    for (int i = 0; i < types.size(); i++) {
+        KNNTypesCounter.push_back(zeros);
+    }
+    realTypesCounter = zeros;
+    for (const auto & realType : realTypes) {
+        for(int j = 0; j < types.size(); j++) {
+            if(realType.getType() == types[j]) {
+                realTypesCounter[j]++;
+                for(int k = 0; k < types.size(); k++) {
+                    if(KNNTypes[k].getType() == types[k]) {
+                        KNNTypesCounter[j][k]++;
+                    }
+                }
+            }
+        }
+    }
+
+    for (const string& type : types) {
+        io.write(type);
+        io.write("\t");
+    }
+    io.write("\n");
+    vector<string> lines = types;
+    for (int i = 0; i < types.size(); i++) {
+        for (int j = 0; j < types.size(); j++) {
             lines[i].append(to_string((round(KNNTypesCounter[i][j] * 100.0 / realTypesCounter[i]))));
             lines[i].append("%\t");
         }
-        this->getIO().write(lines[i] + "\n");
+        io.write(lines[i] + "\n");
     }
 }

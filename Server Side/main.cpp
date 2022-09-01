@@ -13,6 +13,10 @@
 
 using namespace std;
 int main(int argc, char* argv[]) {
+    char c;
+    if (c) {
+        cout << 1 << endl;
+    }
 
     //initializing socket
     /*const string data = "cmake-build-debug/classified.csv";
