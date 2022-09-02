@@ -23,7 +23,7 @@ void ShowConfusionMatrix::execute() {
     createConfusionMatrix(realTypes, KNNTypes);
 }
 
-ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io) {
+ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io, <#initializer#>) {
 }
 
 string ShowConfusionMatrix::getDescription() {

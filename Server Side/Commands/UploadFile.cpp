@@ -49,7 +49,7 @@ void UploadFile::execute() {
     io.write("Upload complete");
 }
 
-UploadFile::UploadFile(DefaultIO &io) : Command(io) {
+UploadFile::UploadFile(DefaultIO &io) : Command(io, <#initializer#>) {
 }
 
 string UploadFile::getDescription() {

@@ -5,7 +5,7 @@
 #include "EndInteraction.h"
 
 
-EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
+EndInteraction::EndInteraction(DefaultIO &io) : Command(io, <#initializer#>) {
 }
 
 void EndInteraction::execute() {

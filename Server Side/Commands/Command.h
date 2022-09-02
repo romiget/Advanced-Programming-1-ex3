@@ -19,13 +19,13 @@ private:
     int k = 5;
     Metric metric = EuclideanMetric();
 protected:
-    DefaultIO io;
+    DefaultIO& io;
 public:
-    virtual void execute();
+    virtual void execute() = 0;
     virtual string getDescription();
     virtual DefaultIO& getIO();
-    explicit Command(DefaultIO& io);
-    int getK();
+    explicit Command(DefaultIO &io);
+    int getK() const;
     void setK(int k);
     Metric& getMetric();
     void setMetric(Metric& metric);
