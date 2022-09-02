@@ -11,7 +11,6 @@ class SendClassificationFile : public Command {
 public:
     void execute() override;
     string getDescription() override;
-    DefaultIO& getIO() override;
     explicit SendClassificationFile(DefaultIO& io);
 };
 

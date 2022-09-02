@@ -9,15 +9,17 @@
 using namespace std;
 
 void ClassifyFile::execute() {
-    Metric metric = this->getMetric();
-    fstream fs("cmake-build-debug/test.csv");
-    vector<Measurable> measurables = FileHandler::getMeasurables("cmake-build-debug/train.csv");
-    fstream output("cmake-build-debug/train.csv", ios::app);
+    fstream fs("unclassifiedfile.csv");
+    vector<Measurable> measurables = FileHandler::getMeasurables("data.csv");
+    ofstream output("output.csv", ios::trunc);
     string line;
     while(getline(fs, line)) {
         Measurable unclassified = FileHandler::createMeasurableFromUnclassified(line);
-        FileHandler::classify(unclassified, measurables, output, this->getK(), metric);
+        FileHandler::classify(unclassified, measurables, output, this->getK(), this->getMetric());
     }
+
+    fs.close();
+    output.close();
 }
 
 ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {

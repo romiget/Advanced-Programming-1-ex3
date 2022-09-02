@@ -10,13 +10,12 @@
 #include "KNN Algorithm/FileHandler.h"
 #include <exception>
 #include "Metrics/EuclideanMetric.h"
+#include "IO/StandardIO.h"
+#include <algorithm>
+#include <cmath>
 
 using namespace std;
 int main(int argc, char* argv[]) {
-    char c;
-    if (c) {
-        cout << 1 << endl;
-    }
 
     //initializing socket
     /*const string data = "cmake-build-debug/classified.csv";

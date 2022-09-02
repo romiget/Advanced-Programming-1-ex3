@@ -9,11 +9,11 @@
 
 class SocketIO : public DefaultIO {
 private:
-    static int sock;
+    int sock;
     int client_sock;
 public:
     SocketIO(int sock, int client_sock);
-    string& read() override;
+    string read() override;
     void write(string str) override;
     void end() override;
 };

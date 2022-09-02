@@ -15,9 +15,9 @@ void ShowConfusionMatrix::execute() {
     for (auto & KNNType : KNNTypes) {
         KNNType.setType("");
     }
-    fstream fs("test.csv", ios::out);
+    ofstream fs("test.csv", ios::out);
     for (auto & KNNType : KNNTypes) {
-        FileHandler::classify(KNNType, realTypes, fs, this->getK(), this->getMetric());
+        FileHandler::classify(KNNType, realTypes, fs, 5, m);
     }
     fs.close();
     createConfusionMatrix(realTypes, KNNTypes);
@@ -46,30 +46,35 @@ void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTy
         KNNTypesCounter.push_back(zeros);
     }
     realTypesCounter = zeros;
-    for (const auto & realType : realTypes) {
+    for (int i = 0; i < realTypes.size(); i++) {
         for(int j = 0; j < types.size(); j++) {
-            if(realType.getType() == types[j]) {
+            if(realTypes[i].getType() == types[j]) {
                 realTypesCounter[j]++;
                 for(int k = 0; k < types.size(); k++) {
-                    if(KNNTypes[k].getType() == types[k]) {
-                        KNNTypesCounter[j][k]++;
+                    if(KNNTypes[i].getType() == types[k]) {
+                        KNNTypesCounter[k][j]++;
                     }
                 }
             }
         }
     }
 
+    string str = "\t";
+
     for (const string& type : types) {
-        io.write(type);
-        io.write("\t");
+        str.append(type);
+        str.append("\t");
     }
-    io.write("\n");
+    str.append("\n");
     vector<string> lines = types;
     for (int i = 0; i < types.size(); i++) {
         for (int j = 0; j < types.size(); j++) {
+            lines[i].append("\t");
             lines[i].append(to_string((round(KNNTypesCounter[i][j] * 100.0 / realTypesCounter[i]))));
             lines[i].append("%\t");
         }
-        io.write(lines[i] + "\n");
+        str.append(lines[i] + "\n");
     }
+
+    io.write(str);
 }

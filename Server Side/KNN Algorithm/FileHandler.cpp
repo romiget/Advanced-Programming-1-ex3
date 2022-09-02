@@ -51,12 +51,16 @@ Measurable FileHandler::createMeasurableFromClassified(const string &line) {
 }
 
 Measurable FileHandler::createMeasurableFromUnclassified(string line) {
-    line.append(",");
-    return createMeasurableFromClassified(line);
+    vector<string> measurable = splitLine(line, ',');
+    Measurable result = Measurable();
+    for (int i = 0; i < measurable.size(); i++) {
+        result.addAttribute(stod(measurable[i]));
+    }
+    return result;
 }
 
 void FileHandler::scan(const vector<Measurable> &measurables, fstream &fs, int k, Metric& func) {
-    fstream scan("output.csv", ios::trunc);
+    ofstream scan("output.csv", ios::trunc);
     string line;
     while (getline(fs, line)) {
         Measurable measured = createMeasurableFromUnclassified(line);
@@ -65,7 +69,7 @@ void FileHandler::scan(const vector<Measurable> &measurables, fstream &fs, int k
     scan.close();
 }
 
-void FileHandler::classify(Measurable& measured, const vector<Measurable>& measurables, fstream& output, int k, Metric& func) {
+void FileHandler::classify(Measurable& measured, const vector<Measurable>& measurables, ofstream& output, int k, Metric& func) {
     vector<Measurable> knn = MeasurableList::KNN((vector<struct Measurable> &) measurables,
             func, measured, k);
     measured.setType(FileHandler::knnCheck(knn));

@@ -14,7 +14,7 @@ string SendClassificationFile::getDescription() {
 
 void SendClassificationFile::execute() {
     fstream fs;
-    fs.open("classified.csv", ios::in);
+    fs.open("output.csv", ios::in);
     if (!fs.good()) {
         throw exception();
     }

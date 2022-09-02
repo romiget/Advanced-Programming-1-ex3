@@ -16,7 +16,7 @@
 using namespace std;
 
 SocketIO::SocketIO(int server_sock, int client_sock) {
-    sock = server_sock;
+    this->sock = server_sock;
     this->client_sock = client_sock;
 }
 
@@ -29,7 +29,7 @@ void SocketIO::write(string str) {
     }
 }
 
-string &SocketIO::read() {
+string SocketIO::read() {
     char buffer[256];
     int expected_data_len = sizeof(buffer);
     ssize_t read_bytes = recv(client_sock, buffer, expected_data_len, 0);

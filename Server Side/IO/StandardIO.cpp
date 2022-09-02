@@ -6,16 +6,16 @@
 #include <iostream>
 
 using namespace std;
-string& StandardIO::read() {
+string StandardIO::read() {
     string str;
     cin >> str;
     return str;
 }
 
-void write(string str) {
+void StandardIO::write(string str) {
     cout << str << endl;
 }
 
-void end() {
+void StandardIO::end() {
     exit(0);
 }
