@@ -17,13 +17,13 @@ void ShowConfusionMatrix::execute() {
     }
     ofstream fs("test.csv", ios::out);
     for (auto & KNNType : KNNTypes) {
-        FileHandler::classify(KNNType, realTypes, fs, 5, m);
+        FileHandler::classify(KNNType, realTypes, fs, 5, *this->getMetric());
     }
     fs.close();
     createConfusionMatrix(realTypes, KNNTypes);
 }
 
-ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io, <#initializer#>) {
+ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io) {
 }
 
 string ShowConfusionMatrix::getDescription() {

@@ -15,14 +15,14 @@ void ClassifyFile::execute() {
     string line;
     while(getline(fs, line)) {
         Measurable unclassified = FileHandler::createMeasurableFromUnclassified(line);
-        FileHandler::classify(unclassified, measurables, output, this->getK(), this->getMetric());
+        FileHandler::classify(unclassified, measurables, output, this->getK(), *this->getMetric());
     }
 
     fs.close();
     output.close();
 }
 
-ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io, <#initializer#>) {
+ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {
 }
 
 string ClassifyFile::getDescription() {

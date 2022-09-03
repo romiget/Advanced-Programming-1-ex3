@@ -5,7 +5,7 @@
 #include "SendClassificationFile.h"
 #include <fstream>
 
-SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io, <#initializer#>) {
+SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
 }
 
 string SendClassificationFile::getDescription() {

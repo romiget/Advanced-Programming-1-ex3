@@ -45,6 +45,5 @@ void CLI::start() {
     }
 }
 
-CLI::CLI(DefaultIO& io) {
-    this->io = io;
+CLI::CLI(DefaultIO &io) {
 }

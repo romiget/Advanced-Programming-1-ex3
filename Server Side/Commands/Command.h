@@ -17,7 +17,7 @@ class Command {
 private:
     string description;
     int k = 5;
-    Metric metric = EuclideanMetric();
+    Metric* metric;
 protected:
     DefaultIO& io;
 public:
@@ -25,9 +25,10 @@ public:
     virtual string getDescription();
     virtual DefaultIO& getIO();
     explicit Command(DefaultIO &io);
+    explicit Command(DefaultIO &io, Metric &metric);
     int getK() const;
     void setK(int k);
-    Metric& getMetric();
+    Metric* getMetric();
     void setMetric(Metric& metric);
     void setMetric(string& name);
 };

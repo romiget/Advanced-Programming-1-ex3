@@ -5,7 +5,7 @@
 #include "ShowClassifications.h"
 #include <fstream>
 
-ShowClassifications::ShowClassifications(DefaultIO &io) : Command(io, <#initializer#>) {
+ShowClassifications::ShowClassifications(DefaultIO &io) : Command(io) {
 }
 
 string ShowClassifications::getDescription() {

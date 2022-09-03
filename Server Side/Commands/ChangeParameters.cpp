@@ -35,7 +35,7 @@ void ChangeParameters::execute() {
     }
 }
 
-ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io, <#initializer#>) {
+ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {
 }
 
 string ChangeParameters::getDescription() {
