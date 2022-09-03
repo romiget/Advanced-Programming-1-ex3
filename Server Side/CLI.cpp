@@ -43,13 +43,16 @@ void CLI::start() {
         choice = stoi(io.read());
         (*commands.begin() + choice - 1)->execute();
     }
+    close();
 }
 
 CLI::CLI(DefaultIO &io) {
 }
 
 void CLI::close() {
-    for (auto & command : commands) {
-        delete command;
+    for (int i = (int) commands.size() - 1; i >= 0; i--) {
+        Command* temp = commands[i];
+        commands.pop_back();
+        delete temp;
     }
 }
