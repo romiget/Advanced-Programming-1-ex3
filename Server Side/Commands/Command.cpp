@@ -55,5 +55,5 @@ Command::Command(DefaultIO &io) : io(io) {
 }
 
 Command::~Command() {
-    delete this;
+    delete this->metric;
 }
