@@ -26,6 +26,7 @@ public:
     virtual DefaultIO& getIO();
     explicit Command(DefaultIO &io);
     explicit Command(DefaultIO &io, Metric &metric);
+    virtual ~Command();
     int getK() const;
     void setK(int k);
     Metric* getMetric();

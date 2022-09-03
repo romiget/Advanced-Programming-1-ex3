@@ -11,6 +11,7 @@ class ChangeParameters : public Command {
 public:
     void execute() override;
     explicit ChangeParameters(DefaultIO &io);
+    ~ChangeParameters() override = default;
     string getDescription() override;
 };
 #endif //SERVER_SIDE_CHANGEPARAMETERS_H

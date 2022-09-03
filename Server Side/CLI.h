@@ -18,6 +18,7 @@ private:
     void init();
 public:
     void start();
+    void close();
     CLI(DefaultIO &io);
 };
 

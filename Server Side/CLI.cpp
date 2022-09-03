@@ -47,3 +47,9 @@ void CLI::start() {
 
 CLI::CLI(DefaultIO &io) {
 }
+
+void CLI::close() {
+    for (auto & command : commands) {
+        delete command;
+    }
+}

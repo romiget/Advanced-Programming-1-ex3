@@ -8,7 +8,7 @@ using namespace std;
 
 void ChangeParameters::execute() {
     this->getIO().write(
-            "The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric().getType());
+            "The current KNN parameters are: K = " + to_string(getK()) + ", distance metric = " + getMetric()->getType());
     string input = this->getIO().read();
     bool flag = false;
     if (input.empty()) return;

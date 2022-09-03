@@ -13,6 +13,7 @@ class ShowConfusionMatrix : public Command {
 public:
     void execute() override;
     string getDescription() override;
+    ~ShowConfusionMatrix() override = default;
     explicit ShowConfusionMatrix(DefaultIO& io);
 };
 

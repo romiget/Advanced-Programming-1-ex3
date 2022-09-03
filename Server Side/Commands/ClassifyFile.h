@@ -11,6 +11,7 @@ class ClassifyFile : public Command {
 public:
     void execute() override;
     string getDescription() override;
+    ~ClassifyFile() override = default;
     explicit ClassifyFile(DefaultIO& io);
 };
 

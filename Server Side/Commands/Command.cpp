@@ -53,3 +53,7 @@ Command::Command(DefaultIO &io) : io(io) {
     this->io = io;
     this->metric = new EuclideanMetric();
 }
+
+Command::~Command() {
+    delete this;
+}
