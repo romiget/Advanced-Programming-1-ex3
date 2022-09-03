@@ -12,13 +12,20 @@
 #include "Commands/EndInteraction.h"
 
 void CLI::init() {
-    commands.push_back(UploadFile(io));
-    commands.push_back(ChangeParameters(io));
-    commands.push_back(ClassifyFile(io));
-    commands.push_back(ShowClassifications(io));
-    commands.push_back(SendClassificationFile(io));
-    commands.push_back(ShowConfusionMatrix(io));
-    commands.push_back(EndInteraction(io));
+    auto* uploadFile = new UploadFile(io);
+    auto* changeParameters = new ChangeParameters(io);
+    auto* classifyFile = new ClassifyFile(io);
+    auto* showClassifications = new ShowClassifications(io);
+    auto* sendClassificationFile = new SendClassificationFile(io);
+    auto* showConfusionMatrix = new ShowConfusionMatrix(io);
+    auto* endInteraction = new EndInteraction(io);
+    commands.push_back(uploadFile);
+    commands.push_back(changeParameters);
+    commands.push_back(classifyFile);
+    commands.push_back(showClassifications);
+    commands.push_back(sendClassificationFile);
+    commands.push_back(showConfusionMatrix);
+    commands.push_back(endInteraction);
 }
 
 void CLI::start() {
@@ -29,12 +36,12 @@ void CLI::start() {
         for (int i = 0; i < commands.size(); i++) {
             s.append(to_string(i));
             s.append(". ");
-            s.append((commands.begin() + i - 1)->getDescription());
+            s.append((*commands.begin() + i - 1)->getDescription());
             s.append("\n");
         }
         io.write(s);
         choice = stoi(io.read());
-        (commands.begin() + choice - 1)->execute();
+        (*commands.begin() + choice - 1)->execute();
     }
 }
 

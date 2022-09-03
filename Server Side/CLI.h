@@ -15,7 +15,7 @@ class CLI {
 private:
     int k = 5;
     Metric func = EuclideanMetric();
-    vector<Command> commands;
+    vector<Command*> commands;
     DefaultIO io;
     void init();
 public:
