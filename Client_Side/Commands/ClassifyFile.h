@@ -12,7 +12,7 @@ public:
     void execute() override;
     string getDescription() override;
     ~ClassifyFile() override = default;
-    explicit ClassifyFile(DefaultIO& io);
+    explicit ClassifyFile() = default;
 };
 
 #endif //SERVER_SIDE_CLASSIFYFILE_H

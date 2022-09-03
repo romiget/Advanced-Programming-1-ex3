@@ -4,10 +4,6 @@
 
 #include "EndInteraction.h"
 
-
-EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
-}
-
 void EndInteraction::execute() {
     this->getIO().end();
 }

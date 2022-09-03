@@ -25,7 +25,6 @@ void UploadFile::execute() {
         throw exception();
     }
     while(getline(in, str)) {
-        cout << 1 << endl;
         out << str << endl;
     }
     out.close();
@@ -47,9 +46,6 @@ void UploadFile::execute() {
     out.close();
     in.close();
     io.write("Upload complete");
-}
-
-UploadFile::UploadFile(DefaultIO &io) : Command(io) {
 }
 
 string UploadFile::getDescription() {

@@ -25,7 +25,6 @@ void UploadFile::execute() {
         throw exception();
     }
     while(getline(in, str)) {
-        cout << 1 << endl;
         out << str << endl;
     }
     out.close();
