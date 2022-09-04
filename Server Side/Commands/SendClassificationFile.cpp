@@ -22,5 +22,6 @@ void SendClassificationFile::execute() {
     while(getline(fs, str)) {
         io.write(str);
     }
+    io.write("eof");
     fs.close();
 }

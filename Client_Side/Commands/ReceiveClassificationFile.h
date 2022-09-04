@@ -7,12 +7,12 @@
 
 #include "Command.h"
 
-class SendClassificationFile : public Command {
+class ReceiveClassificationFile : public Command {
 public:
     void execute() override;
     string getDescription() override;
-    ~SendClassificationFile() override = default;
-    explicit SendClassificationFile() = default;
+    ~ReceiveClassificationFile() override = default;
+    explicit ReceiveClassificationFile(DefaultIO& io);
 };
 
 #endif //SERVER_SIDE_SENDCLASSIFICATIONFILE_H

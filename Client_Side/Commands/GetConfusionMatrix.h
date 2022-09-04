@@ -7,12 +7,12 @@
 
 #include "Command.h"
 
-class ShowConfusionMatrix : public Command {
+class GetConfusionMatrix : public Command {
 public:
     void execute() override;
     string getDescription() override;
-    ~ShowConfusionMatrix() override = default;
-    explicit ShowConfusionMatrix() = default;
+    ~GetConfusionMatrix() override = default;
+    explicit GetConfusionMatrix(DefaultIO& io);
 };
 
 #endif //SERVER_SIDE_SHOWCONFUSIONMATRIX_H

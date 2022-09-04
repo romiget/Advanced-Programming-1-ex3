@@ -13,3 +13,6 @@ void ClassifyFile::execute() {
 string ClassifyFile::getDescription() {
     return "classify data";
 }
+
+ClassifyFile::ClassifyFile(DefaultIO &io): Command(io){
+}

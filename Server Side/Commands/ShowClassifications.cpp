@@ -13,7 +13,7 @@ string ShowClassifications::getDescription() {
 }
 
 void ShowClassifications::execute() {
-    fstream fs;
+    fstream fs;string metric =
     fs.open("output.csv", ios::in);
     if (!fs.good()) {
         throw exception();
@@ -22,5 +22,6 @@ void ShowClassifications::execute() {
     while(getline(fs, str)) {
         io.write(str);
     }
+    io.write("eof");
     fs.close();
 }

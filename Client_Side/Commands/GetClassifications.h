@@ -7,12 +7,12 @@
 
 #include "Command.h"
 
-class ShowClassifications : public Command {
+class GetClassifications : public Command {
 public:
     void execute() override;
     string getDescription() override;
-    ~ShowClassifications() override = default;
-    explicit ShowClassifications() = default;
+    ~GetClassifications() override = default;
+    explicit GetClassifications(DefaultIO& io);
 };
 
 #endif //SERVER_SIDE_SHOWCLASSIFICATIONS_H

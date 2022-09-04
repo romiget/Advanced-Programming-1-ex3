@@ -6,10 +6,11 @@
 #include "Commands/UploadFile.h"
 #include "Commands/ChangeParameters.h"
 #include "Commands/ClassifyFile.h"
-#include "Commands/ShowClassifications.h"
-#include "Commands/SendClassificationFile.h"
-#include "Commands/ShowConfusionMatrix.h"
+#include "Commands/GetClassifications.h"
+#include "Commands/ReceiveClassificationFile.h"
+#include "Commands/GetConfusionMatrix.h"
 #include "Commands/EndInteraction.h"
+#include <iostream>
 
 void CLI::init() {
     auto* uploadFile = new UploadFile(io);
@@ -39,7 +40,7 @@ void CLI::start() {
             s.append((*commands.begin() + i - 1)->getDescription());
             s.append("\n");
         }
-        io.write(s);
+        cout << s << endl;
         choice = stoi(io.read());
         (*commands.begin() + choice - 1)->execute();
     }

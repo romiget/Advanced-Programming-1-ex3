@@ -10,7 +10,7 @@ using namespace std;
 class ChangeParameters : public Command {
 public:
     void execute() override;
-    explicit ChangeParameters() = default;
+    explicit ChangeParameters(DefaultIO& io);
     ~ChangeParameters() override = default;
     string getDescription() override;
 };

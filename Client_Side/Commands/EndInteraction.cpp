@@ -11,3 +11,6 @@ void EndInteraction::execute() {
 string EndInteraction::getDescription() {
     return "exit";
 }
+
+EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
+}
