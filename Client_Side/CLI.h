@@ -15,7 +15,7 @@ private:
 public:
     void start();
     void close();
-    CLI(DefaultIO* io);
+    explicit CLI(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_CLI_H

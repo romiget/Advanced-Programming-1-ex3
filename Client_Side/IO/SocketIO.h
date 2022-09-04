@@ -12,7 +12,7 @@ class SocketIO : public DefaultIO {
 private:
     int sock;
 public:
-    SocketIO(int sock);
+    explicit SocketIO(int sock);
     string read() override;
     void write(string str) override;
     void end() const override;

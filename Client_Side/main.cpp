@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
         perror("error connecting to server");
     }
     // initializing CLI and running it
-    SocketIO io = SocketIO(sock);
-    CLI cli = CLI(&io);
+    auto* io = new SocketIO(sock);
+    CLI cli = CLI(io);
     cli.start();
 }
