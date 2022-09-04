@@ -22,7 +22,6 @@ protected:
     DefaultIO& io;
 public:
     virtual void execute() = 0;
-    virtual string getDescription();
     virtual DefaultIO& getIO();
     explicit Command(DefaultIO &io);
     explicit Command(DefaultIO &io, Metric &metric);

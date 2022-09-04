@@ -15,7 +15,7 @@ double ChebyshevMetric::metric(vector<double> l1, vector<double> l2) const {
     return distance;
 }
 
-string& ChebyshevMetric::getType() {
+string ChebyshevMetric::getType() {
     string type = "CHE";
     return type;
 }

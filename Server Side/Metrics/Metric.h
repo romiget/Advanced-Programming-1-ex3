@@ -16,7 +16,7 @@ using namespace std;
 class Metric {
 public:
     virtual double metric(vector<double> l1, vector<double> l2) const;
-    virtual string& getType();
+    virtual string getType();
 };
 
 #endif //ADVANCED_PROGRAMMING_1_METRIC_H

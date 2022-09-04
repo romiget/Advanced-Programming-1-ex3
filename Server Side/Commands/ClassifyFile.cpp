@@ -24,7 +24,3 @@ void ClassifyFile::execute() {
 
 ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {
 }
-
-string ClassifyFile::getDescription() {
-    return "classify data";
-}

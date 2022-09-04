@@ -11,7 +11,3 @@ EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
 void EndInteraction::execute() {
     this->getIO().end();
 }
-
-string EndInteraction::getDescription() {
-    return "exit";
-}

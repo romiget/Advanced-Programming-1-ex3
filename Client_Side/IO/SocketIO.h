@@ -11,9 +11,8 @@
 class SocketIO : public DefaultIO {
 private:
     int sock;
-    int server_sock;
 public:
-    SocketIO(int sock, int client_sock);
+    SocketIO(int sock);
     string read() override;
     void write(string str) override;
     void end() const override;

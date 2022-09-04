@@ -33,7 +33,3 @@ void UploadFile::execute() {
 
 UploadFile::UploadFile(DefaultIO &io) : Command(io) {
 }
-
-string UploadFile::getDescription() {
-    return "upload an unclassified data file";
-}

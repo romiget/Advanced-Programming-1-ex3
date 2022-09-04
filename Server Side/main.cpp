@@ -13,12 +13,13 @@
 #include "IO/StandardIO.h"
 #include <algorithm>
 #include <cmath>
+#include "IO/SocketIO.h"
+#include "CLI.h"
 
 using namespace std;
 int main(int argc, char* argv[]) {
 
     //initializing socket
-    /*const string data = "cmake-build-debug/classified.csv";
     const int server_port = 1234;
     struct sockaddr_in sin;
 
@@ -48,41 +49,8 @@ int main(int argc, char* argv[]) {
     if (client_sock < 0) {
         perror("couldn't accept connection");
     }
-    //entering a loop of sending and receiving messages until closing connection with the client.
-    while (true) {
-        try {
-            //trying to receive the data from the client
-            char buffer[256];
-            int expected_data_len = sizeof(buffer);
-            ssize_t read_bytes = recv(client_sock, buffer, expected_data_len, 0);
-            if (read_bytes == 0) {
-                close(sock);
-                return 0;
-            }
-            else if (read_bytes < 0) {
-                throw exception();
-            }
-            else {
-                //classifying
-                char* classification;
-                EuclideanMetric eum = EuclideanMetric();
-                Flower unclassified = FileHandler::createFlowerFromUnclassified(buffer);
-                vector<Flower> flowers = FileHandler::getFlowers( data); // segmentation fault happens here
-                fstream stream = fstream(data);
-                FileHandler::classify(unclassified, flowers,stream, 9, eum);
-                classification = &(unclassified.getType().front());
-                size_t data_len = strlen(classification);
-                //sending data
-                ssize_t sent_bytes = send(client_sock, classification, data_len, 0);
-                if (sent_bytes < 0) {
-                    throw exception();
-                }
-            }
-        }
-        catch (exception&) {
-            //closing connection
-            close(sock);
-            return 0;
-        }
-    }*/
+
+    SocketIO io = SocketIO(sock, client_sock);
+    CLI cli = CLI(io);
+    cli.start();
 }

@@ -13,13 +13,13 @@
 #include <iostream>
 
 void CLI::init() {
-    auto* uploadFile = new UploadFile(io);
-    auto* changeParameters = new ChangeParameters(io);
-    auto* classifyFile = new ClassifyFile(io);
-    auto* showClassifications = new ShowClassifications(io);
-    auto* sendClassificationFile = new SendClassificationFile(io);
-    auto* showConfusionMatrix = new ShowConfusionMatrix(io);
-    auto* endInteraction = new EndInteraction(io);
+    auto uploadFile = new UploadFile(io);
+    auto changeParameters = new ChangeParameters(io);
+    auto classifyFile = new ClassifyFile(io);
+    auto showClassifications = new GetClassifications(io);
+    auto sendClassificationFile = new ReceiveClassificationFile(io);
+    auto showConfusionMatrix = new GetConfusionMatrix(io);
+    auto endInteraction = new EndInteraction(io);
     commands.push_back(uploadFile);
     commands.push_back(changeParameters);
     commands.push_back(classifyFile);

@@ -16,7 +16,3 @@ void ChangeParameters::execute() {
 
 ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {
 }
-
-string ChangeParameters::getDescription() {
-    return "algorithm settings";
-}

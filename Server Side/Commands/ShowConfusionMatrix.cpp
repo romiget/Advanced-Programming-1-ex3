@@ -26,10 +26,6 @@ void ShowConfusionMatrix::execute() {
 ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io) {
 }
 
-string ShowConfusionMatrix::getDescription() {
-    return "display algorithm confusion matrix";
-}
-
 void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTypes, const vector<Measurable>& KNNTypes) {
     vector<int> realTypesCounter;
     vector<string> types;

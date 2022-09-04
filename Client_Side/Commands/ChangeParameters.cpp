@@ -10,7 +10,7 @@ void ChangeParameters::execute() {
     string curr = io.read();
     cout <<
             "The current KNN parameters are: K = " + curr.substr(0, curr.find(',')) + ", distance metric = "
-            + curr.substr(curr.find(',') + 1, curr.size() - curr.find(',') + 1))
+            + curr.substr(curr.find(',') + 1, curr.size() - curr.find(',') + 1)
             << endl;
     string input;
     cin >> input;

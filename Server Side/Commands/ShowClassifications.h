@@ -10,7 +10,6 @@
 class ShowClassifications : public Command {
 public:
     void execute() override;
-    string getDescription() override;
     ~ShowClassifications() override = default;
     explicit ShowClassifications(DefaultIO& io);
 };

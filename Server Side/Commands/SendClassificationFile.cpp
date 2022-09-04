@@ -8,10 +8,6 @@
 SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
 }
 
-string SendClassificationFile::getDescription() {
-    return "download results";
-}
-
 void SendClassificationFile::execute() {
     fstream fs;
     fs.open("output.csv", ios::in);

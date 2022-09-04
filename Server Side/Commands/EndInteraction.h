@@ -10,7 +10,6 @@
 class EndInteraction : public Command {
 public:
     void execute() override;
-    string getDescription() override;
     ~EndInteraction() override = default;
     explicit EndInteraction(DefaultIO& io);
 };

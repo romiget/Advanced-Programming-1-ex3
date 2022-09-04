@@ -11,6 +11,5 @@ public:
     void execute() override;
     explicit UploadFile(DefaultIO& io);
     ~UploadFile() override = default;
-    string getDescription() override;
 };
 #endif //SERVER_SIDE_UPLOADFILE_H

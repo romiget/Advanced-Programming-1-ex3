@@ -10,7 +10,6 @@
 class SendClassificationFile : public Command {
 public:
     void execute() override;
-    string getDescription() override;
     ~SendClassificationFile() override = default;
     explicit SendClassificationFile(DefaultIO& io);
 };

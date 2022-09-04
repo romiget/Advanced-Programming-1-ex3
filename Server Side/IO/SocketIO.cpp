@@ -25,7 +25,7 @@ void SocketIO::write(string str) {
     //sending data
     ssize_t sent_bytes = send(client_sock, str.c_str(), data_len, 0);
     if (sent_bytes < 0) {
-        throw exception();
+        perror("error sending to client");
     }
 }
 
@@ -34,7 +34,7 @@ string SocketIO::read() {
     int expected_data_len = sizeof(buffer);
     ssize_t read_bytes = recv(client_sock, buffer, expected_data_len, 0);
     if (read_bytes < 0) {
-        throw exception();
+        perror("error reading from client");
     }
     string str = "";
     for (char c : buffer) {

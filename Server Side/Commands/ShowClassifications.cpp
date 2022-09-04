@@ -8,12 +8,8 @@
 ShowClassifications::ShowClassifications(DefaultIO &io) : Command(io) {
 }
 
-string ShowClassifications::getDescription() {
-    return "display results";
-}
-
 void ShowClassifications::execute() {
-    fstream fs;string metric =
+    fstream fs;
     fs.open("output.csv", ios::in);
     if (!fs.good()) {
         throw exception();

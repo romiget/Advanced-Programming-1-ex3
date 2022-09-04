@@ -91,20 +91,20 @@ build CMakeFiles/Client_Side.dir/Commands/ClassifyFile.cpp.o: CXX_COMPILER__Clie
   OBJECT_DIR = CMakeFiles/Client_Side.dir
   OBJECT_FILE_DIR = CMakeFiles/Client_Side.dir/Commands
 
-build CMakeFiles/Client_Side.dir/Commands/ShowClassifications.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/ShowClassifications.cpp || cmake_object_order_depends_target_Client_Side
-  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/ShowClassifications.cpp.o.d
+build CMakeFiles/Client_Side.dir/Commands/GetClassifications.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/GetClassifications.cpp || cmake_object_order_depends_target_Client_Side
+  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/GetClassifications.cpp.o.d
   FLAGS = -g -std=gnu++11
   OBJECT_DIR = CMakeFiles/Client_Side.dir
   OBJECT_FILE_DIR = CMakeFiles/Client_Side.dir/Commands
 
-build CMakeFiles/Client_Side.dir/Commands/SendClassificationFile.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/SendClassificationFile.cpp || cmake_object_order_depends_target_Client_Side
-  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/SendClassificationFile.cpp.o.d
+build CMakeFiles/Client_Side.dir/Commands/ReceiveClassificationFile.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/ReceiveClassificationFile.cpp || cmake_object_order_depends_target_Client_Side
+  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/ReceiveClassificationFile.cpp.o.d
   FLAGS = -g -std=gnu++11
   OBJECT_DIR = CMakeFiles/Client_Side.dir
   OBJECT_FILE_DIR = CMakeFiles/Client_Side.dir/Commands
 
-build CMakeFiles/Client_Side.dir/Commands/ShowConfusionMatrix.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/ShowConfusionMatrix.cpp || cmake_object_order_depends_target_Client_Side
-  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/ShowConfusionMatrix.cpp.o.d
+build CMakeFiles/Client_Side.dir/Commands/GetConfusionMatrix.cpp.o: CXX_COMPILER__Client_Side_Debug /home/romrom4444/CLionProjects/Advanced-Programming-1-ex3/Client_Side/Commands/GetConfusionMatrix.cpp || cmake_object_order_depends_target_Client_Side
+  DEP_FILE = CMakeFiles/Client_Side.dir/Commands/GetConfusionMatrix.cpp.o.d
   FLAGS = -g -std=gnu++11
   OBJECT_DIR = CMakeFiles/Client_Side.dir
   OBJECT_FILE_DIR = CMakeFiles/Client_Side.dir/Commands
@@ -135,7 +135,7 @@ build CMakeFiles/Client_Side.dir/IO/SocketIO.cpp.o: CXX_COMPILER__Client_Side_De
 #############################################
 # Link the executable Client_Side
 
-build Client_Side: CXX_EXECUTABLE_LINKER__Client_Side_Debug CMakeFiles/Client_Side.dir/main.cpp.o CMakeFiles/Client_Side.dir/CLI.cpp.o CMakeFiles/Client_Side.dir/Commands/Command.cpp.o CMakeFiles/Client_Side.dir/IO/DefaultIO.cpp.o CMakeFiles/Client_Side.dir/Commands/UploadFile.cpp.o CMakeFiles/Client_Side.dir/Commands/ChangeParameters.cpp.o CMakeFiles/Client_Side.dir/Commands/ClassifyFile.cpp.o CMakeFiles/Client_Side.dir/Commands/ShowClassifications.cpp.o CMakeFiles/Client_Side.dir/Commands/SendClassificationFile.cpp.o CMakeFiles/Client_Side.dir/Commands/ShowConfusionMatrix.cpp.o CMakeFiles/Client_Side.dir/Commands/EndInteraction.cpp.o CMakeFiles/Client_Side.dir/IO/StandardIO.cpp.o CMakeFiles/Client_Side.dir/IO/SocketIO.cpp.o
+build Client_Side: CXX_EXECUTABLE_LINKER__Client_Side_Debug CMakeFiles/Client_Side.dir/main.cpp.o CMakeFiles/Client_Side.dir/CLI.cpp.o CMakeFiles/Client_Side.dir/Commands/Command.cpp.o CMakeFiles/Client_Side.dir/IO/DefaultIO.cpp.o CMakeFiles/Client_Side.dir/Commands/UploadFile.cpp.o CMakeFiles/Client_Side.dir/Commands/ChangeParameters.cpp.o CMakeFiles/Client_Side.dir/Commands/ClassifyFile.cpp.o CMakeFiles/Client_Side.dir/Commands/GetClassifications.cpp.o CMakeFiles/Client_Side.dir/Commands/ReceiveClassificationFile.cpp.o CMakeFiles/Client_Side.dir/Commands/GetConfusionMatrix.cpp.o CMakeFiles/Client_Side.dir/Commands/EndInteraction.cpp.o CMakeFiles/Client_Side.dir/IO/StandardIO.cpp.o CMakeFiles/Client_Side.dir/IO/SocketIO.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/Client_Side.dir
   POST_BUILD = :

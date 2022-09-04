@@ -4,10 +4,6 @@
 
 #include "Command.h"
 
-string Command::getDescription() {
-    return this->description;
-}
-
 DefaultIO &Command::getIO() {
     return this->io;
 }

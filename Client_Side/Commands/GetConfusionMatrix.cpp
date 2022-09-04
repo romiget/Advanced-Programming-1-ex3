@@ -11,5 +11,9 @@ void GetConfusionMatrix::execute() {
     cout << matrix << endl;
 }
 
+string GetConfusionMatrix::getDescription() {
+    return "display algorithm confusion matrix";
+}
+
 GetConfusionMatrix::GetConfusionMatrix(DefaultIO &io) : Command(io) {
 }

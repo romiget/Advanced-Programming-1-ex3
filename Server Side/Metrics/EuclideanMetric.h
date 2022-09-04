@@ -16,7 +16,7 @@ using namespace std;
 class EuclideanMetric : public Metric {
 public:
     double metric(vector<double> l1, vector<double> l2) const override;
-    string& getType() override;
+    string getType() override;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_EUCLIDEANMETRIC_H

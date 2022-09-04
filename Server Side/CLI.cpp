@@ -32,14 +32,6 @@ void CLI::start() {
     init();
     int choice = 0;
     while (choice != 7) {
-        string s = "Welcome to the KNN Classifier Server. Please choose an option:\n";
-        for (int i = 0; i < commands.size(); i++) {
-            s.append(to_string(i));
-            s.append(". ");
-            s.append((*commands.begin() + i - 1)->getDescription());
-            s.append("\n");
-        }
-        io.write(s);
         choice = stoi(io.read());
         (*commands.begin() + choice - 1)->execute();
     }
@@ -47,6 +39,7 @@ void CLI::start() {
 }
 
 CLI::CLI(DefaultIO &io) {
+    this->io = io;
 }
 
 void CLI::close() {
