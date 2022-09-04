@@ -17,5 +17,4 @@ void StandardIO::write(string str) {
 }
 
 void StandardIO::end() const {
-    exit(0);
 }

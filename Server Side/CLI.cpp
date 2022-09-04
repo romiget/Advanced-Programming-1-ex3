@@ -34,7 +34,7 @@ void CLI::start() {
     int choice = 0;
     while (choice != 7) {
         choice = stoi(io->read());
-        commands[choice - 1]->execute(k, metric);
+        commands[choice - 1]->execute(k, &metric);
     }
     close();
 }

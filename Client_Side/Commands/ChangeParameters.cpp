@@ -16,7 +16,7 @@ void ChangeParameters::execute() {
     string newMet;
     cin >> newK;
     cin >> newMet;
-    if (newK >= 10)
+    if (newK > 10)
         cout << "Invalid input for K" << endl;
     else if (newMet != "EUC" && newMet != "MAN" && newMet != "CHE")
         cout << "Invalid input for Metric" << endl;
