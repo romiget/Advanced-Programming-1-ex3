@@ -34,8 +34,6 @@ void CLI::start() {
     int choice = 0;
     while (choice != 7) {
         choice = stoi(io->read());
-        cout << k << endl;
-        cout << metric->getType() << endl;
         commands[choice - 1]->execute(k, metric);
     }
     close();

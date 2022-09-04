@@ -16,6 +16,7 @@ void UploadFile::execute(int& k, Metric* metric) {
     }
     str = io->read();
     while(str != "eof") {
+        cout << 1 << endl;
         out << str << endl;
         str = io->read();
     }

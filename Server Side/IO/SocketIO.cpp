@@ -39,7 +39,7 @@ string SocketIO::read() {
     string str;
     for (char c : buffer) {
         if (c) {
-            str += c;
+            str.append(&c);
         } else {
             break;
         }

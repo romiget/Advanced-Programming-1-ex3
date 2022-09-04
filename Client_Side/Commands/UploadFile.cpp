@@ -7,7 +7,7 @@
 #include <iostream>
 
 void UploadFile::execute() {
-    ifstream in;
+    fstream in;
     string str;
 
     cout << "Train:" << endl;
