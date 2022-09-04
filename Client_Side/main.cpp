@@ -33,6 +33,6 @@ int main(int argc, char* argv[]) {
     }
     // initializing CLI and running it
     SocketIO io = SocketIO(sock);
-    CLI cli = CLI(io);
+    CLI cli = CLI(&io);
     cli.start();
 }

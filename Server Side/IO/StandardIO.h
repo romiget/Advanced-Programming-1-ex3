@@ -12,7 +12,6 @@ public:
     string read() override;
     void write(string str) override;
     void end() override;
-    ~StandardIO() override = default;
 };
 
 #endif //SERVER_SIDE_STANDARDIO_H

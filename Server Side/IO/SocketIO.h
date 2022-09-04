@@ -16,7 +16,6 @@ public:
     string read() override;
     void write(string str) override;
     void end() override;
-    ~SocketIO() override = default;
 };
 
 #endif //SERVER_SIDE_SOCKETIO_H
