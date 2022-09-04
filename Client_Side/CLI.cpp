@@ -43,7 +43,7 @@ void CLI::start() {
         cout << s << endl;
         cin >> choice;
         io->write(to_string(choice));
-        commands[choice]->execute();
+        commands[choice - 1]->execute();
     }
     close();
 }

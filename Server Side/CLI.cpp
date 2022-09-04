@@ -10,7 +10,6 @@
 #include "Commands/SendClassificationFile.h"
 #include "Commands/ShowConfusionMatrix.h"
 #include "Commands/EndInteraction.h"
-#include <iostream>
 
 void CLI::init() {
     auto* uploadFile = new UploadFile(io);
@@ -34,8 +33,7 @@ void CLI::start() {
     int choice = 0;
     while (choice != 7) {
         choice = stoi(io->read());
-        cout << 1 << endl;
-        commands[choice]->execute(k, metric);
+        commands[choice - 1]->execute(k, metric);
     }
     close();
 }
