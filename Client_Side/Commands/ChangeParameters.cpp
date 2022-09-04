@@ -7,7 +7,7 @@ using namespace std;
 #include <iostream>
 
 void ChangeParameters::execute() {
-    string curr = io.read();
+    string curr = io->read();
     cout <<
             "The current KNN parameters are: K = " + curr.substr(0, curr.find(',')) + ", distance metric = "
             + curr.substr(curr.find(',') + 1, curr.size() - curr.find(',') + 1)
@@ -32,17 +32,17 @@ void ChangeParameters::execute() {
             newMet = input.substr(2, 3);
         }
         if (newMet != "EUC" && newMet != "MAN" && newMet != "CHE") {
-            this->getIO().write("Invalid metric name");
+            this->getIO()->write("Invalid metric name");
         }
     } catch (exception &e) {
-        this->getIO().write("Invalid input");
+        this->getIO()->write("Invalid input");
     }
-    io.write(to_string(newK) + "," + newMet);
+    io->write(to_string(newK) + "," + newMet);
 }
 
 string ChangeParameters::getDescription() {
     return "algorithm settings";
 }
 
-ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io){
+ChangeParameters::ChangeParameters(DefaultIO* io) : Command(io){
 }

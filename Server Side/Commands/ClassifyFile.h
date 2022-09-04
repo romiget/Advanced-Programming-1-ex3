@@ -11,7 +11,7 @@ class ClassifyFile : public Command {
 public:
     void execute(int& k, Metric* metric) override;
     ~ClassifyFile() override = default;
-    explicit ClassifyFile(DefaultIO& io);
+    explicit ClassifyFile(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_CLASSIFYFILE_H

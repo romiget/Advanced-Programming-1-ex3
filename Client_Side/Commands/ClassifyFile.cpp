@@ -14,5 +14,5 @@ string ClassifyFile::getDescription() {
     return "classify data";
 }
 
-ClassifyFile::ClassifyFile(DefaultIO &io): Command(io){
+ClassifyFile::ClassifyFile(DefaultIO* io): Command(io){
 }

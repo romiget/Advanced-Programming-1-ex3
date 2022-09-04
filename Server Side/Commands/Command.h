@@ -17,11 +17,11 @@ class Command {
 private:
     string description;
 protected:
-    DefaultIO& io;
+    DefaultIO* io;
 public:
     virtual void execute(int& k, Metric* metric) = 0;
-    virtual DefaultIO& getIO();
-    explicit Command(DefaultIO &io);
+    virtual DefaultIO* getIO();
+    explicit Command(DefaultIO* io);
     virtual ~Command() = default;
 };
 #endif //SERVER_SIDE_COMMAND_H

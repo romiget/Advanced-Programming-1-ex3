@@ -13,12 +13,12 @@ class Command {
 private:
     string description;
 protected:
-    DefaultIO& io;
+    DefaultIO* io;
 public:
     virtual void execute() = 0;
     virtual string getDescription();
-    virtual DefaultIO& getIO();
-    explicit Command(DefaultIO &io);
+    virtual DefaultIO* getIO();
+    explicit Command(DefaultIO* io);
     virtual ~Command() = default;
 };
 #endif //SERVER_SIDE_COMMAND_H

@@ -5,12 +5,12 @@
 #include "EndInteraction.h"
 
 void EndInteraction::execute() {
-    this->getIO().end();
+    this->getIO()->end();
 }
 
 string EndInteraction::getDescription() {
     return "exit";
 }
 
-EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
+EndInteraction::EndInteraction(DefaultIO* io) : Command(io) {
 }

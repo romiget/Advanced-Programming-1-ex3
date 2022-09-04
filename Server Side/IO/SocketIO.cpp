@@ -36,7 +36,7 @@ string SocketIO::read() {
     if (read_bytes < 0) {
         perror("error reading from client");
     }
-    string str = "";
+    string str;
     for (char c : buffer) {
         if (c) {
             str += c;

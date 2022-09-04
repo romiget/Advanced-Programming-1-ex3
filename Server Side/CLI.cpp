@@ -10,6 +10,7 @@
 #include "Commands/SendClassificationFile.h"
 #include "Commands/ShowConfusionMatrix.h"
 #include "Commands/EndInteraction.h"
+#include <iostream>
 
 void CLI::init() {
     auto* uploadFile = new UploadFile(io);
@@ -32,19 +33,21 @@ void CLI::start() {
     init();
     int choice = 0;
     while (choice != 7) {
-        choice = stoi(io.read());
-        (*commands.begin() + choice - 1)->execute(k, metric);
+        choice = stoi(io->read());
+        cout << 1 << endl;
+        commands[choice]->execute(k, metric);
     }
     close();
 }
 
-CLI::CLI(DefaultIO &io) {
+CLI::CLI(DefaultIO* io) {
     this->io = io;
     this->k = 5;
     this->metric = new EuclideanMetric();
 }
 
 void CLI::close() {
+    delete io;
     for (int i = (int) commands.size() - 1; i >= 0; i--) {
         Command* temp = commands[i];
         commands.pop_back();

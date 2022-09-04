@@ -15,12 +15,12 @@ void ReceiveClassificationFile::execute() {
     if (!ofs) {
         throw exception();
     }
-    string str = io.read();
+    string str = io->read();
     while(str != "eof") {
         ofs << str << endl;
-        str = io.read();
+        str = io->read();
     }
 }
 
-ReceiveClassificationFile::ReceiveClassificationFile(DefaultIO &io) : Command(io) {
+ReceiveClassificationFile::ReceiveClassificationFile(DefaultIO* io) : Command(io) {
 }

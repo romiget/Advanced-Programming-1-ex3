@@ -9,7 +9,7 @@
 class UploadFile : public Command {
 public:
     void execute(int& k, Metric* metric) override;
-    explicit UploadFile(DefaultIO& io);
+    explicit UploadFile(DefaultIO* io);
     ~UploadFile() override = default;
 };
 #endif //SERVER_SIDE_UPLOADFILE_H

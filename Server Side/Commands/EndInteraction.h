@@ -11,7 +11,7 @@ class EndInteraction : public Command {
 public:
     void execute(int& k, Metric* metric) override;
     ~EndInteraction() override = default;
-    explicit EndInteraction(DefaultIO& io);
+    explicit EndInteraction(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_ENDINTERACTION_H

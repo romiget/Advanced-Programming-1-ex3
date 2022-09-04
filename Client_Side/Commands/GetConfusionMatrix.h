@@ -12,7 +12,7 @@ public:
     void execute() override;
     string getDescription() override;
     ~GetConfusionMatrix() override = default;
-    explicit GetConfusionMatrix(DefaultIO& io);
+    explicit GetConfusionMatrix(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_SHOWCONFUSIONMATRIX_H

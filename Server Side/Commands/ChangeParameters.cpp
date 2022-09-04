@@ -7,8 +7,8 @@ using namespace std;
 #include "../IO/DefaultIO.h"
 
 void ChangeParameters::execute(int& k, Metric* metric) {
-    io.write(to_string(k) + "," + metric->getType());
-    string input = io.read();
+    io->write(to_string(k) + "," + metric->getType());
+    string input = io->read();
     k = (stoi(input.substr(0, input.find(','))));
     string newMetric = input.substr(input.find(',') + 1, input.size() - input.find(','));
     Metric* temp = metric;
@@ -26,5 +26,5 @@ void ChangeParameters::execute(int& k, Metric* metric) {
     delete temp;
 }
 
-ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {
+ChangeParameters::ChangeParameters(DefaultIO* io) : Command(io) {
 }

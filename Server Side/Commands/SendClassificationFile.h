@@ -11,7 +11,7 @@ class SendClassificationFile : public Command {
 public:
     void execute(int& k, Metric* metric) override;
     ~SendClassificationFile() override = default;
-    explicit SendClassificationFile(DefaultIO& io);
+    explicit SendClassificationFile(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_SENDCLASSIFICATIONFILE_H

@@ -11,7 +11,7 @@ class ShowClassifications : public Command {
 public:
     void execute(int& k, Metric* metric) override;
     ~ShowClassifications() override = default;
-    explicit ShowClassifications(DefaultIO& io);
+    explicit ShowClassifications(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_SHOWCLASSIFICATIONS_H

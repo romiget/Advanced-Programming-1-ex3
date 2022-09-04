@@ -14,22 +14,22 @@ void UploadFile::execute(int& k, Metric* metric) {
     if (!out.good()) {
         throw exception();
     }
-    str = io.read();
+    str = io->read();
     while(str != "eof") {
         out << str << endl;
-        str = io.read();
+        str = io->read();
     }
     out.close();
     out.open("unclassifiedfile.csv", ios::trunc);
     if (!out.good()) {
         throw exception();
     }
-    str = io.read();
+    str = io->read();
     while(str != "eof") {
         out << str << endl;
     }
     out.close();
 }
 
-UploadFile::UploadFile(DefaultIO &io) : Command(io) {
+UploadFile::UploadFile(DefaultIO* io) : Command(io) {
 }

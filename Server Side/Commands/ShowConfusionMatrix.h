@@ -13,7 +13,7 @@ class ShowConfusionMatrix : public Command {
 public:
     void execute(int& k, Metric* metric) override;
     ~ShowConfusionMatrix() override = default;
-    explicit ShowConfusionMatrix(DefaultIO& io);
+    explicit ShowConfusionMatrix(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_SHOWCONFUSIONMATRIX_H

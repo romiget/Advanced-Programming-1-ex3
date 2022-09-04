@@ -8,10 +8,10 @@ string Command::getDescription() {
     return this->description;
 }
 
-DefaultIO &Command::getIO() {
+DefaultIO* Command::getIO() {
     return this->io;
 }
 
-Command::Command(DefaultIO &io) : io(io) {
+Command::Command(DefaultIO* io) : io(io) {
     this->io = io;
 }

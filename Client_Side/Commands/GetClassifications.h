@@ -12,7 +12,7 @@ public:
     void execute() override;
     string getDescription() override;
     ~GetClassifications() override = default;
-    explicit GetClassifications(DefaultIO& io);
+    explicit GetClassifications(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_SHOWCLASSIFICATIONS_H

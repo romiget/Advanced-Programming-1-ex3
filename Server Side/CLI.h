@@ -14,7 +14,7 @@
 class CLI {
 private:
     vector<Command*> commands;
-    DefaultIO io;
+    DefaultIO* io;
     int k = 5;
     Metric* metric;
     void init();
@@ -26,7 +26,7 @@ public:
     Metric* getMetric();
     void setMetric(Metric& metric);
     void setMetric(string& name);
-    CLI(DefaultIO &io);
+    CLI(DefaultIO* io);
 };
 
 #endif //SERVER_SIDE_CLI_H

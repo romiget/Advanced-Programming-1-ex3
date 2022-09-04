@@ -23,7 +23,7 @@ void ShowConfusionMatrix::execute(int& k, Metric* metric) {
     createConfusionMatrix(realTypes, KNNTypes);
 }
 
-ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO &io) : Command(io) {
+ShowConfusionMatrix::ShowConfusionMatrix(DefaultIO* io) : Command(io) {
 }
 
 void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTypes, const vector<Measurable>& KNNTypes) {
@@ -72,5 +72,5 @@ void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTy
         str.append(lines[i] + "\n");
     }
 
-    io.write(str);
+    io->write(str);
 }

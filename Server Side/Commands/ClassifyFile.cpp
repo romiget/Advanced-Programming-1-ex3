@@ -22,5 +22,5 @@ void ClassifyFile::execute(int& k, Metric* metric) {
     output.close();
 }
 
-ClassifyFile::ClassifyFile(DefaultIO &io) : Command(io) {
+ClassifyFile::ClassifyFile(DefaultIO* io) : Command(io) {
 }

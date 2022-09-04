@@ -5,9 +5,9 @@
 #include "EndInteraction.h"
 
 
-EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
+EndInteraction::EndInteraction(DefaultIO* io) : Command(io) {
 }
 
 void EndInteraction::execute(int& k, Metric* metric) {
-    this->getIO().end();
+    this->getIO()->end();
 }

@@ -7,7 +7,7 @@
 #include <iostream>
 
 void GetConfusionMatrix::execute() {
-    string matrix = io.read();
+    string matrix = io->read();
     cout << matrix << endl;
 }
 
@@ -15,5 +15,5 @@ string GetConfusionMatrix::getDescription() {
     return "display algorithm confusion matrix";
 }
 
-GetConfusionMatrix::GetConfusionMatrix(DefaultIO &io) : Command(io) {
+GetConfusionMatrix::GetConfusionMatrix(DefaultIO* io) : Command(io) {
 }

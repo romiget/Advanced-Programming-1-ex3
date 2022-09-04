@@ -5,7 +5,7 @@
 #include "SendClassificationFile.h"
 #include <fstream>
 
-SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
+SendClassificationFile::SendClassificationFile(DefaultIO* io) : Command(io) {
 }
 
 void SendClassificationFile::execute(int& k, Metric* metric) {
@@ -16,8 +16,8 @@ void SendClassificationFile::execute(int& k, Metric* metric) {
     }
     string str;
     while(getline(fs, str)) {
-        io.write(str);
+        io->write(str);
     }
-    io.write("eof");
+    io->write("eof");
     fs.close();
 }

@@ -10,8 +10,9 @@ using namespace std;
 
 class DefaultIO {
 public:
-    virtual string read();
-    virtual void write(string str);
-    virtual void end();
+    virtual string read() = 0;
+    virtual void write(string str) = 0;
+    virtual void end() = 0;
+    virtual ~DefaultIO() = 0;
 };
 #endif //SERVER_SIDE_DEFAULTIO_H

@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
         perror("couldn't accept connection");
     }
 
-    SocketIO io = SocketIO(sock, client_sock);
+    auto io = new SocketIO(sock, client_sock);
     CLI cli = CLI(io);
     cli.start();
 }

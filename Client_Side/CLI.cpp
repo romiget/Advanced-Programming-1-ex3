@@ -35,22 +35,24 @@ void CLI::start() {
     while (choice != 7) {
         string s = "Welcome to the KNN Classifier Server. Please choose an option:\n";
         for (int i = 0; i < commands.size(); i++) {
-            s.append(to_string(i));
+            s.append(to_string(i + 1));
             s.append(". ");
-            s.append((*commands.begin() + i - 1)->getDescription());
+            s.append(commands[i]->getDescription());
             s.append("\n");
         }
         cout << s << endl;
-        choice = stoi(io.read());
-        (*commands.begin() + choice - 1)->execute();
+        cin >> choice;
+        io->write(to_string(choice));
+        commands[choice]->execute();
     }
     close();
 }
 
-CLI::CLI(DefaultIO &io) {
+CLI::CLI(DefaultIO* &io) {
 }
 
 void CLI::close() {
+    delete io;
     for (int i = (int) commands.size() - 1; i >= 0; i--) {
         Command* temp = commands[i];
         commands.pop_back();

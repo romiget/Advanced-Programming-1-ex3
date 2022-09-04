@@ -11,12 +11,12 @@ string GetClassifications::getDescription() {
 }
 
 void GetClassifications::execute() {
-    string str = io.read();
+    string str = io->read();
     while (str != "eof") {
         cout << str << endl;
-        str = io.read();
+        str = io->read();
     }
 }
 
-GetClassifications::GetClassifications(DefaultIO &io) : Command(io) {
+GetClassifications::GetClassifications(DefaultIO* io) : Command(io) {
 }

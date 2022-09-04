@@ -10,12 +10,12 @@
 class CLI {
 private:
     vector<Command*> commands;
-    DefaultIO io;
+    DefaultIO* io;
     void init();
 public:
     void start();
     void close();
-    CLI(DefaultIO &io);
+    CLI(DefaultIO* &io);
 };
 
 #endif //SERVER_SIDE_CLI_H

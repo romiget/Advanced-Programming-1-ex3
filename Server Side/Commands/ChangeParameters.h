@@ -10,7 +10,7 @@ using namespace std;
 class ChangeParameters : public Command {
 public:
     void execute(int& k, Metric* metric) override;
-    explicit ChangeParameters(DefaultIO &io);
+    explicit ChangeParameters(DefaultIO* io);
     ~ChangeParameters() override = default;
 };
 #endif //SERVER_SIDE_CHANGEPARAMETERS_H
