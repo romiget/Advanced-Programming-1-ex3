@@ -8,7 +8,7 @@
 SendClassificationFile::SendClassificationFile(DefaultIO &io) : Command(io) {
 }
 
-void SendClassificationFile::execute() {
+void SendClassificationFile::execute(int& k, Metric* metric) {
     fstream fs;
     fs.open("output.csv", ios::in);
     if (!fs.good()) {

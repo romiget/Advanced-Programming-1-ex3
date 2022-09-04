@@ -33,13 +33,15 @@ void CLI::start() {
     int choice = 0;
     while (choice != 7) {
         choice = stoi(io.read());
-        (*commands.begin() + choice - 1)->execute();
+        (*commands.begin() + choice - 1)->execute(k, metric);
     }
     close();
 }
 
 CLI::CLI(DefaultIO &io) {
     this->io = io;
+    this->k = 5;
+    this->metric = new EuclideanMetric();
 }
 
 void CLI::close() {
@@ -48,4 +50,37 @@ void CLI::close() {
         commands.pop_back();
         delete temp;
     }
+    delete metric;
+}
+
+int CLI::getK() const {
+    return this->k;
+}
+Metric* CLI::getMetric() {
+    return this->metric;
+}
+
+void CLI::setK(int k) {
+    this->k = k;
+}
+
+void CLI::setMetric(Metric &metric1) {
+    this->metric = &metric1;
+}
+
+void CLI::setMetric(string &name) {
+    if (name == "EUC") {
+        auto* euclideanMetric = new EuclideanMetric();
+        this->setMetric(*euclideanMetric);
+    }
+    else if (name == "MAN") {
+        auto* manhattanMetric = new ManhattanMetric();
+        this->setMetric(*manhattanMetric);
+    }
+    else if (name == "CHE") {
+        auto* chebyshevMetric = new ChebyshevMetric();
+        this->setMetric(*chebyshevMetric);
+    }
+    else
+        throw exception();
 }

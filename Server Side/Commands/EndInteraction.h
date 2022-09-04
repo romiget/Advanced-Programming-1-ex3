@@ -9,7 +9,7 @@
 
 class EndInteraction : public Command {
 public:
-    void execute() override;
+    void execute(int& k, Metric* metric) override;
     ~EndInteraction() override = default;
     explicit EndInteraction(DefaultIO& io);
 };

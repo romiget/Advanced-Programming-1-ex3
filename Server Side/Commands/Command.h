@@ -16,20 +16,12 @@ using namespace std;
 class Command {
 private:
     string description;
-    int k = 5;
-    Metric* metric;
 protected:
     DefaultIO& io;
 public:
-    virtual void execute() = 0;
+    virtual void execute(int& k, Metric* metric) = 0;
     virtual DefaultIO& getIO();
     explicit Command(DefaultIO &io);
-    explicit Command(DefaultIO &io, Metric &metric);
-    virtual ~Command();
-    int getK() const;
-    void setK(int k);
-    Metric* getMetric();
-    void setMetric(Metric& metric);
-    void setMetric(string& name);
+    virtual ~Command() = default;
 };
 #endif //SERVER_SIDE_COMMAND_H

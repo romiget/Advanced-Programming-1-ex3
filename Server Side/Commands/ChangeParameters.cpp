@@ -6,12 +6,24 @@ using namespace std;
 #include "ChangeParameters.h"
 #include "../IO/DefaultIO.h"
 
-void ChangeParameters::execute() {
-    io.write(to_string(getK()) + "," + getMetric()->getType());
+void ChangeParameters::execute(int& k, Metric* metric) {
+    io.write(to_string(k) + "," + metric->getType());
     string input = io.read();
-    setK(stoi(input.substr(0, input.find(','))));
-    string metric = input.substr(input.find(',') + 1, input.size() - input.find(','));
-    setMetric(metric);
+    k = (stoi(input.substr(0, input.find(','))));
+    string newMetric = input.substr(input.find(',') + 1, input.size() - input.find(','));
+    Metric* temp = metric;
+    if (newMetric == "EUC") {
+        metric = new EuclideanMetric();
+    }
+    else if (newMetric == "MAN") {
+        metric = new ManhattanMetric();
+    }
+    else if (newMetric == "CHE") {
+        metric = new ChebyshevMetric();
+    }
+    else
+        throw exception();
+    delete temp;
 }
 
 ChangeParameters::ChangeParameters(DefaultIO &io) : Command(io) {

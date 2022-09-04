@@ -8,6 +8,6 @@
 EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
 }
 
-void EndInteraction::execute() {
+void EndInteraction::execute(int& k, Metric* metric) {
     this->getIO().end();
 }

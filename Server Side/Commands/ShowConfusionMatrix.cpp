@@ -9,7 +9,7 @@
 #include <map>
 #include <algorithm>
 
-void ShowConfusionMatrix::execute() {
+void ShowConfusionMatrix::execute(int& k, Metric* metric) {
     std::vector<Measurable> realTypes = FileHandler::getMeasurables("data.csv");
     std::vector<Measurable> KNNTypes = FileHandler::getMeasurables("data.csv");
     for (auto & KNNType : KNNTypes) {
@@ -17,7 +17,7 @@ void ShowConfusionMatrix::execute() {
     }
     ofstream fs("test.csv", ios::out);
     for (auto & KNNType : KNNTypes) {
-        FileHandler::classify(KNNType, realTypes, fs, 5, *this->getMetric());
+        FileHandler::classify(KNNType, realTypes, fs, 5, *metric);
     }
     fs.close();
     createConfusionMatrix(realTypes, KNNTypes);

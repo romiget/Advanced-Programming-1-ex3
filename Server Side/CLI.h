@@ -15,10 +15,17 @@ class CLI {
 private:
     vector<Command*> commands;
     DefaultIO io;
+    int k = 5;
+    Metric* metric;
     void init();
+    void close();
 public:
     void start();
-    void close();
+    int getK() const;
+    void setK(int k);
+    Metric* getMetric();
+    void setMetric(Metric& metric);
+    void setMetric(string& name);
     CLI(DefaultIO &io);
 };
 

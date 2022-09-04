@@ -6,7 +6,7 @@
 #include <fstream>
 #include <iostream>
 
-void UploadFile::execute() {
+void UploadFile::execute(int& k, Metric* metric) {
     ofstream out;
     string str;
 

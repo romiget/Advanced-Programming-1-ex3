@@ -11,7 +11,7 @@
 class ShowConfusionMatrix : public Command {
     void createConfusionMatrix(const vector<Measurable>& realTypes, const vector<Measurable>& KNNTypes);
 public:
-    void execute() override;
+    void execute(int& k, Metric* metric) override;
     ~ShowConfusionMatrix() override = default;
     explicit ShowConfusionMatrix(DefaultIO& io);
 };
