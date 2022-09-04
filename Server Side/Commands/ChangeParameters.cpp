@@ -9,6 +9,8 @@ using namespace std;
 void ChangeParameters::execute(int& k, Metric** metric) {
     io->write(to_string(k) + "," + (*metric)->getType());
     string input = io->read();
+    if (input == "Invalid")
+        return;
     k = stoi(input.substr(0, input.find(',')));
     string newMetric = input.substr(input.find(',') + 1, 3);
     if (newMetric == "EUC") {
