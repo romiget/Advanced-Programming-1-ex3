@@ -8,7 +8,7 @@
 
 class UploadFile : public Command {
 public:
-    void execute(int& k, Metric* metric) override;
+    void execute(int& k, Metric** metric) override;
     explicit UploadFile(DefaultIO* io);
     ~UploadFile() override = default;
 };

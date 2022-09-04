@@ -9,7 +9,7 @@
 
 class ClassifyFile : public Command {
 public:
-    void execute(int& k, Metric* metric) override;
+    void execute(int& k, Metric** metric) override;
     ~ClassifyFile() override = default;
     explicit ClassifyFile(DefaultIO* io);
 };

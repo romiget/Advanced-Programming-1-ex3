@@ -19,7 +19,7 @@ private:
 protected:
     DefaultIO* io;
 public:
-    virtual void execute(int& k, Metric* metric) = 0;
+    virtual void execute(int& k, Metric** metric) = 0;
     virtual DefaultIO* getIO();
     explicit Command(DefaultIO* io);
     virtual ~Command() = default;

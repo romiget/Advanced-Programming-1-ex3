@@ -9,7 +9,7 @@
 
 class ShowClassifications : public Command {
 public:
-    void execute(int& k, Metric* metric) override;
+    void execute(int& k, Metric** metric) override;
     ~ShowClassifications() override = default;
     explicit ShowClassifications(DefaultIO* io);
 };

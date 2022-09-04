@@ -8,7 +8,7 @@
 ShowClassifications::ShowClassifications(DefaultIO* io) : Command(io) {
 }
 
-void ShowClassifications::execute(int& k, Metric* metric) {
+void ShowClassifications::execute(int& k, Metric** metric) {
     fstream fs;
     fs.open("output.csv", ios::in);
     if (!fs.good()) {

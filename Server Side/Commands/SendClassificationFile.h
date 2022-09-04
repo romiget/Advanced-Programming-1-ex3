@@ -9,7 +9,7 @@
 
 class SendClassificationFile : public Command {
 public:
-    void execute(int& k, Metric* metric) override;
+    void execute(int& k, Metric** metric) override;
     ~SendClassificationFile() override = default;
     explicit SendClassificationFile(DefaultIO* io);
 };

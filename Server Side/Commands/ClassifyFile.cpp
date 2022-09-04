@@ -8,14 +8,14 @@
 
 using namespace std;
 
-void ClassifyFile::execute(int& k, Metric* metric) {
+void ClassifyFile::execute(int& k, Metric** metric) {
     fstream fs("unclassifiedfile.csv");
     vector<Measurable> measurables = FileHandler::getMeasurables("data.csv");
     ofstream output("output.csv", ios::trunc);
     string line;
     while(getline(fs, line)) {
         Measurable unclassified = FileHandler::createMeasurableFromUnclassified(line);
-        FileHandler::classify(unclassified, measurables, output, k, *metric);
+        FileHandler::classify(unclassified, measurables, output, k, **metric);
     }
 
     fs.close();
