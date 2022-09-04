@@ -49,7 +49,6 @@ int main(int argc, char* argv[]) {
     if (client_sock < 0) {
         perror("couldn't accept connection");
     }
-
     auto io = new SocketIO(sock, client_sock);
     CLI cli = CLI(io);
     cli.start();
