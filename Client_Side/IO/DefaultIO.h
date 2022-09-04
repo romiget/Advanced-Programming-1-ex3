@@ -11,9 +11,10 @@ using namespace std;
 
 class DefaultIO {
 public:
-    virtual string read();
-    virtual void write(string str);
-    virtual void end() const;
+    virtual string read() = 0;
+    virtual void write(string str) = 0;
+    virtual void end() const = 0;
+    virtual ~DefaultIO() = 0;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_EX3_DEFAULTIO_H

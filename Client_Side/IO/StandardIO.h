@@ -13,6 +13,7 @@ public:
     string read() override;
     void write(string str) override;
     void end() const override;
+    ~StandardIO() override;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_EX3_STANDARDIO_H

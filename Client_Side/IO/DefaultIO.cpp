@@ -5,17 +5,4 @@
 #include "DefaultIO.h"
 #include <string>
 
-string DefaultIO::read() {
-    //should've overridden that.
-    throw exception();
-}
-
-void DefaultIO::write(string str) {
-    //should've overridden that.
-    throw exception();
-}
-
-void DefaultIO::end() const {
-    // should've overridden that.
-    throw exception();
-}
+DefaultIO::~DefaultIO() = default;

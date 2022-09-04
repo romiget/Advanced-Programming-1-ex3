@@ -16,6 +16,7 @@ public:
     string read() override;
     void write(string str) override;
     void end() const override;
+    ~SocketIO() override;
 };
 
 #endif //ADVANCED_PROGRAMMING_1_EX3_SOCKETIO_H
