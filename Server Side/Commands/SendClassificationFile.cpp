@@ -17,6 +17,7 @@ void SendClassificationFile::execute(int& k, Metric** metric) {
     string str;
     while(getline(fs, str)) {
         io->write(str);
+        io->read();
     }
     io->write("eof");
     fs.close();

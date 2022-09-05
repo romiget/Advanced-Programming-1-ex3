@@ -14,6 +14,7 @@ void GetClassifications::execute() {
     string str = io->read();
     while (str != "eof") {
         cout << str << endl;
+        io->write("got line");
         str = io->read();
     }
 }

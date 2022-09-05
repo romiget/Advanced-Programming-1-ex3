@@ -66,7 +66,7 @@ void ShowConfusionMatrix::createConfusionMatrix(const vector<Measurable>& realTy
     for (int i = 0; i < types.size(); i++) {
         for (int j = 0; j < types.size(); j++) {
             lines[i].append("\t");
-            lines[i].append(to_string((round(KNNTypesCounter[i][j] * 100.0 / realTypesCounter[i]))));
+            lines[i].append(to_string(((int) round(KNNTypesCounter[i][j] * 100.0 / realTypesCounter[i]))));
             lines[i].append("%\t");
         }
         str.append(lines[i] + "\n");

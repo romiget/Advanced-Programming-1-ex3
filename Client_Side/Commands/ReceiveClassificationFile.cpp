@@ -18,6 +18,7 @@ void ReceiveClassificationFile::execute() {
     string str = io->read();
     while(str != "eof") {
         ofs << str << endl;
+        io->write("got line");
         str = io->read();
     }
 }

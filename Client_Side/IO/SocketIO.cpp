@@ -29,7 +29,7 @@ void SocketIO::write(string str) {
 }
 
 string SocketIO::read() {
-    char buffer[256];
+    char buffer[256] = {'\0'};
     int expected_data_len = sizeof(buffer);
     ssize_t read_bytes = recv(sock, buffer, expected_data_len, 0);
     if (read_bytes < 0) {
@@ -38,7 +38,7 @@ string SocketIO::read() {
     string str;
     for (char c : buffer) {
         if (c) {
-            str += c;
+            str.append(&c);
         }
         else {
             break;

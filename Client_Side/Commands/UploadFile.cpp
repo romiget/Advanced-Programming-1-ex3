@@ -11,25 +11,26 @@ void UploadFile::execute() {
     string str;
 
     cout << "Train:" << endl;
-    string fileName = io->read();
+    string fileName;
+    cin >> fileName;
     in.open(fileName, ios::in);
     if (!in) {
-        throw exception();
-    }
-    if (!in.good()) {
-        throw exception();
+        cout << "No such file!" << endl;
+        return;
     }
     while(getline(in, str)) {
         io->write(str);
+        io->read();
     }
     io->write("eof");
     in.close();
     cout << "Upload Complete" << endl;
     cout << "Unclassified:" << endl;
-    fileName = this->getIO()->read();
+    cin >> fileName;
     in.open(fileName, ios::in);
-    if (!in.good()) {
-        throw exception();
+    if (!in) {
+        cout << "No such file!" << endl;
+        return;
     }
     while(getline(in, str)) {
         io->write(str);

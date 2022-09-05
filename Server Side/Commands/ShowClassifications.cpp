@@ -4,6 +4,7 @@
 
 #include "ShowClassifications.h"
 #include <fstream>
+#include <iostream>
 
 ShowClassifications::ShowClassifications(DefaultIO* io) : Command(io) {
 }
@@ -15,8 +16,16 @@ void ShowClassifications::execute(int& k, Metric** metric) {
         throw exception();
     }
     string str;
+    string output;
+    int i = 1;
     while(getline(fs, str)) {
-        io->write(str);
+        output.append(to_string(i));
+        output.append(". ");
+        output.append(str);
+        io->write(output);
+        io->read();
+        i++;
+        output = "";
     }
     io->write("eof");
     fs.close();
