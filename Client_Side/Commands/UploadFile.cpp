@@ -34,8 +34,10 @@ void UploadFile::execute() {
     }
     while(getline(in, str)) {
         io->write(str);
+        io->read();
     }
     io->write("eof");
+    io->read();
     in.close();
     cout << "Upload Complete" << endl;
 }

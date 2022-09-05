@@ -27,9 +27,11 @@ void UploadFile::execute(int& k, Metric** metric) {
         throw exception();
     }
     str = io->read();
+    io->write("got line");
     while(str != "eof") {
         out << str << endl;
         str = io->read();
+        io->write("got line");
     }
     out.close();
 }
