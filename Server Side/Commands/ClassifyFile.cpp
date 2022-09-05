@@ -5,6 +5,7 @@
 #include <fstream>
 #include "ClassifyFile.h"
 #include "../KNN Algorithm/FileHandler.h"
+#include <iostream>
 
 using namespace std;
 
@@ -17,7 +18,6 @@ void ClassifyFile::execute(int& k, Metric** metric) {
         Measurable unclassified = FileHandler::createMeasurableFromUnclassified(line);
         FileHandler::classify(unclassified, measurables, output, k, **metric);
     }
-
     fs.close();
     output.close();
 }
