@@ -5,13 +5,16 @@
 #include "ShowClassifications.h"
 #include <fstream>
 #include <iostream>
+#include <unistd.h>
 
 ShowClassifications::ShowClassifications(DefaultIO* io) : Command(io) {
 }
 
 void ShowClassifications::execute(int& k, Metric** metric) {
     fstream fs;
-    fs.open("output.csv", ios::in);
+    const string output_file = "output" + to_string(gettid()) + ".csv";
+
+    fs.open(output_file, ios::in);
     if (!fs.good()) {
         throw exception();
     }

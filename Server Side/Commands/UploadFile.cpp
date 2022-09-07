@@ -5,12 +5,18 @@
 #include "UploadFile.h"
 #include <fstream>
 #include <iostream>
+#include <pthread.h>
+#include <stdio.h>
+#include <unistd.h>
 
 void UploadFile::execute(int& k, Metric** metric) {
     ofstream out;
     string str;
 
-    out.open("data.csv", ios::trunc);
+    const string data_file = "data" + to_string(gettid()) + ".csv";
+    const string unclassified_file = "unclassified" + to_string(gettid()) + ".csv";
+
+    out.open(data_file, ios::trunc);
     if (!out.good()) {
         throw exception();
     }
@@ -21,7 +27,7 @@ void UploadFile::execute(int& k, Metric** metric) {
         str = io->read();
     }
     out.close();
-    out.open("unclassifiedfile.csv", ios::trunc);
+    out.open(unclassified_file, ios::trunc);
     if (!out.good()) {
         throw exception();
     }

@@ -8,14 +8,19 @@
 #include "../KNN Algorithm/FileHandler.h"
 #include <map>
 #include <algorithm>
+#include <unistd.h>
 
 void ShowConfusionMatrix::execute(int& k, Metric** metric) {
-    std::vector<Measurable> realTypes = FileHandler::getMeasurables("data.csv");
-    std::vector<Measurable> KNNTypes = FileHandler::getMeasurables("data.csv");
+
+    const string data_file = "data" + to_string(gettid()) + ".csv";
+    const string test_file = "test" + to_string(gettid()) + ".csv";
+
+    std::vector<Measurable> realTypes = FileHandler::getMeasurables(data_file);
+    std::vector<Measurable> KNNTypes = FileHandler::getMeasurables(data_file);
     for (auto & KNNType : KNNTypes) {
         KNNType.setType("");
     }
-    ofstream fs("test.csv", ios::out);
+    ofstream fs(test_file, ios::out);
     for (auto & KNNType : KNNTypes) {
         FileHandler::classify(KNNType, realTypes, fs, 5, **metric);
     }

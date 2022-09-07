@@ -12,6 +12,9 @@
 #include "Commands/EndInteraction.h"
 #include <iostream>
 
+bool uploaded = false;
+bool classified = false;
+
 void CLI::init() {
     auto uploadFile = new UploadFile(io);
     auto changeParameters = new ChangeParameters(io);
@@ -42,6 +45,21 @@ void CLI::start() {
         }
         cout << s << endl;
         cin >> choice;
+        if (choice == 1) {
+            uploaded = true;
+            classified = false;
+        }
+        if ((choice == 3 || choice == 6) && !uploaded) {
+            cout << "No files uploaded yet!" << endl;
+            continue;
+        }
+        if ((choice == 4 || choice == 5) && !classified) {
+            cout << "No files classified yet!" << endl;
+            continue;
+        }
+        if (choice == 3) {
+            classified = true;
+        }
         io->write(to_string(choice));
         commands[choice - 1]->execute();
     }

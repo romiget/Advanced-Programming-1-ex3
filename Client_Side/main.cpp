@@ -13,6 +13,7 @@
 #include "CLI.h"
 
 using namespace std;
+
 int main(int argc, char* argv[]) {
     // initializing socket
     const char* ip_address = "127.0.0.1";

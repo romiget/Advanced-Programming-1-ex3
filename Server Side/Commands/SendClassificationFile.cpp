@@ -4,13 +4,16 @@
 
 #include "SendClassificationFile.h"
 #include <fstream>
+#include <unistd.h>
 
 SendClassificationFile::SendClassificationFile(DefaultIO* io) : Command(io) {
 }
 
 void SendClassificationFile::execute(int& k, Metric** metric) {
     fstream fs;
-    fs.open("output.csv", ios::in);
+    const string output_file = "output" + to_string(gettid()) + ".csv";
+
+    fs.open(output_file, ios::in);
     if (!fs.good()) {
         throw exception();
     }
