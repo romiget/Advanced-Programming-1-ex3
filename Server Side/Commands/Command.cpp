@@ -4,10 +4,6 @@
 
 #include "Command.h"
 
-DefaultIO* Command::getIO() {
-    return this->io;
-}
-
 Command::Command(DefaultIO* io) : io(io) {
     this->io = io;
 }

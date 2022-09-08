@@ -7,6 +7,7 @@
 #include <iostream>
 
 void GetConfusionMatrix::execute() {
+    // getting the confusion matrix from the server and printing it
     string matrix = io->read();
     cout << matrix << endl;
 }

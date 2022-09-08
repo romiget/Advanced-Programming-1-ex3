@@ -13,10 +13,12 @@ using namespace std;
 
 void ClassifyFile::execute(int& k, Metric** metric) {
 
+    // setting file names according to the current thread
     const string data_file = "data" + to_string(gettid()) + ".csv";
     const string unclassified_file = "unclassified" + to_string(gettid()) + ".csv";
     const string output_file = "output" + to_string(gettid()) + ".csv";
 
+    // classifying the unclassified file
     fstream fs(unclassified_file);
     vector<Measurable> measurables = FileHandler::getMeasurables(data_file);
     ofstream output(output_file, ios::trunc);

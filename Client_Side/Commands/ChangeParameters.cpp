@@ -7,6 +7,7 @@ using namespace std;
 #include <iostream>
 
 void ChangeParameters::execute() {
+    // gets the current parameters from the server
     string curr = io->read();
     cout <<
             "The current KNN parameters are: K = " + curr.substr(0, curr.find(',')) + ", distance metric = "
@@ -21,6 +22,7 @@ void ChangeParameters::execute() {
         io->write("Invalid");
         return;
     }
+    // splitting the user input by comma
     newK = stoi(line.substr(0, line.find(' ')));
     newMet = line.substr(line.find(' ') + 1, line.size() - line.find(' ') - 1);
     if (newK > 10) {

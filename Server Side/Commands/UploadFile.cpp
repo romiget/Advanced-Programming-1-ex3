@@ -13,6 +13,7 @@ void UploadFile::execute(int& k, Metric** metric) {
     ofstream out;
     string str;
 
+    // initializing thread-specific file names
     const string data_file = "data" + to_string(gettid()) + ".csv";
     const string unclassified_file = "unclassified" + to_string(gettid()) + ".csv";
 
@@ -23,6 +24,7 @@ void UploadFile::execute(int& k, Metric** metric) {
     str = io->read();
     while(str != "eof") {
         out << str << endl;
+        // signaling the client that we got the line
         io->write("got line");
         str = io->read();
     }
@@ -32,11 +34,11 @@ void UploadFile::execute(int& k, Metric** metric) {
         throw exception();
     }
     str = io->read();
-    io->write("got line");
     while(str != "eof") {
         out << str << endl;
-        str = io->read();
+        // signaling the client that we got the line
         io->write("got line");
+        str = io->read();
     }
     out.close();
 }

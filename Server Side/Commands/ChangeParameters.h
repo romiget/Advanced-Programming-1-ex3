@@ -2,6 +2,9 @@
 // Created by ido on 8/28/22.
 //
 
+// This command displays the current parameters for K and the metric,
+// and lets the user choose to change the parameters.
+
 #ifndef SERVER_SIDE_CHANGEPARAMETERS_H
 #define SERVER_SIDE_CHANGEPARAMETERS_H
 #include "Command.h"

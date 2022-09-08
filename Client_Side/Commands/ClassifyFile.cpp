@@ -8,6 +8,7 @@
 using namespace std;
 
 void ClassifyFile::execute() {
+    // no work on the client side is done
 }
 
 string ClassifyFile::getDescription() {

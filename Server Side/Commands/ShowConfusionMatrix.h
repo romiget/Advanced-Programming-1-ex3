@@ -2,6 +2,9 @@
 // Created by romrom4444 on 8/28/22.
 //
 
+// This command displays the algorithm's confusion matrix,
+// according to the current training file, to the client
+
 #ifndef SERVER_SIDE_SHOWCONFUSIONMATRIX_H
 #define SERVER_SIDE_SHOWCONFUSIONMATRIX_H
 

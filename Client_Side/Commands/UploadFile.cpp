@@ -20,6 +20,7 @@ void UploadFile::execute() {
     }
     while(getline(in, str)) {
         io->write(str);
+        // waiting for the server to get the line
         io->read();
     }
     io->write("eof");
@@ -34,10 +35,10 @@ void UploadFile::execute() {
     }
     while(getline(in, str)) {
         io->write(str);
+        // waiting for the server to get the line
         io->read();
     }
     io->write("eof");
-    io->read();
     in.close();
     cout << "Upload Complete" << endl;
 }

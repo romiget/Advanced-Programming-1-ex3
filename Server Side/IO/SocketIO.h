@@ -2,6 +2,8 @@
 // Created by romrom4444 on 8/28/22.
 //
 
+// Interaction using sockets
+
 #ifndef SERVER_SIDE_SOCKETIO_H
 #define SERVER_SIDE_SOCKETIO_H
 

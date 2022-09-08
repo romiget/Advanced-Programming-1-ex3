@@ -16,6 +16,8 @@ bool uploaded = false;
 bool classified = false;
 
 void CLI::init() {
+    // initializing the commands and putting them in a vector
+    // so that access to the commands is easy using an index variable.
     auto uploadFile = new UploadFile(io);
     auto changeParameters = new ChangeParameters(io);
     auto classifyFile = new ClassifyFile(io);

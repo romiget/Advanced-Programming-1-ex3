@@ -2,6 +2,8 @@
 // Created by romrom4444 on 8/28/22.
 //
 
+// Standard input/output interaction. Not viable for server-client interaction.
+
 #ifndef SERVER_SIDE_STANDARDIO_H
 #define SERVER_SIDE_STANDARDIO_H
 

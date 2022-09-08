@@ -2,6 +2,8 @@
 // Created by romrom4444 on 9/4/22.
 //
 
+// Interaction using sockets
+
 #include <string>
 #include "DefaultIO.h"
 
