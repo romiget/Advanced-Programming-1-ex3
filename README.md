@@ -36,7 +36,7 @@ Open a terminal at the server side's location.
 
 Now compile the server using:
 ```bash
-g++ *.cpp 'KNN Algorithm'/*.cpp Commands/*.cpp IO/*.cpp Metrics/*.cpp -o a
+g++ *.cpp 'KNN Algorithm'/*.cpp Commands/*.cpp IO/*.cpp Metrics/*.cpp -o a -lpthread
 ```
 #### Note:
 you can write whatever you want instead of ```a```, you will just have to stick with this name when running this program.
