@@ -36,7 +36,7 @@ Open a terminal at the server side's location.
 
 Now compile the server using:
 ```bash
-g++ -o *.cpp 'KNN Algorithm'/*.cpp Commands/*.cpp IO/*.cpp Metrics/*.cpp a
+g++ *.cpp 'KNN Algorithm'/*.cpp Commands/*.cpp IO/*.cpp Metrics/*.cpp -o a
 ```
 #### Note:
 you can write whatever you want instead of ```a```, you will just have to stick with this name when running this program.
@@ -50,7 +50,7 @@ Running the server:
 Compiling a Client:
 
 ```bash
-g++ -o *.cpp Commands/*.cpp IO/*.cpp a
+g++ *.cpp Commands/*.cpp IO/*.cpp -o a
 ```
 
 Running the client:
