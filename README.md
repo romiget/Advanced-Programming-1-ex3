@@ -71,7 +71,7 @@ This command asks for new k value (for the k neighbors) and a new metric, so it 
 
 However, this command might do nothing, if you won't supply k value between 1 - 10 or a non-existing metric.
 
-###classify data
+### classify data
 
 This command classifies the data given at the ```Upload File``` command, you can find more details about this part at the first assignment.
 
