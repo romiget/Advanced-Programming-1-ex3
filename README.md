@@ -89,9 +89,11 @@ As requested, we have created this command to calculate the accuracy of our algo
 
 We have implemented that using the classified objects we already had, comparing to the type our algorithm set for them after a classification.
 
-## EndInteraction
+### EndInteraction
 
 This command deletes resources from the heap and closes the server-client connection.
+
+
 
 ### Additional functionality
 
