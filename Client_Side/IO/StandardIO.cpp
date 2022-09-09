@@ -1,5 +1,5 @@
 //
-// Created by romrom4444 on 8/28/22.
+// Created by romrom4444 on 9/4/22.
 //
 
 #include "StandardIO.h"
@@ -16,5 +16,5 @@ void StandardIO::write(string str) {
     cout << str << endl;
 }
 
-void StandardIO::end() {
+void StandardIO::end() const {
 }

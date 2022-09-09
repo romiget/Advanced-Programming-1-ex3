@@ -4,15 +4,9 @@
 
 #include "EndInteraction.h"
 
-
-EndInteraction::EndInteraction(DefaultIO &io) : Command(io) {
-    this->io = io;
+EndInteraction::EndInteraction(DefaultIO* io) : Command(io) {
 }
 
-void EndInteraction::execute() {
-    io.end();
-}
-
-string EndInteraction::getDescription() {
-    return "exit";
+void EndInteraction::execute(int& k, Metric** metric) {
+    io->end();
 }

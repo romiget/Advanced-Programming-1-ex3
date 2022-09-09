@@ -2,9 +2,8 @@
 // Created by ido on 8/28/22.
 //
 
-// This commands receives a training file (classified)
-// and an unclassified file from the client, and stores them
-// separately for future use.
+// This commands sends a training file (classified)
+// and an unclassified file to the server for later use.
 
 #ifndef SERVER_SIDE_UPLOADFILE_H
 #define SERVER_SIDE_UPLOADFILE_H
@@ -12,8 +11,9 @@
 
 class UploadFile : public Command {
 public:
-    void execute(int& k, Metric** metric) override;
+    void execute() override;
     explicit UploadFile(DefaultIO* io);
     ~UploadFile() override = default;
+    string getDescription() override;
 };
 #endif //SERVER_SIDE_UPLOADFILE_H

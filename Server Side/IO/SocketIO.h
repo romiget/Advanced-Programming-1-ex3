@@ -2,6 +2,8 @@
 // Created by romrom4444 on 8/28/22.
 //
 
+// Interaction using sockets
+
 #ifndef SERVER_SIDE_SOCKETIO_H
 #define SERVER_SIDE_SOCKETIO_H
 
@@ -9,12 +11,14 @@
 
 class SocketIO : public DefaultIO {
 private:
-    static int sock;
+    int sock;
+    int client_sock;
 public:
-    SocketIO(int sock);
-    string& read() override;
+    SocketIO(int sock, int client_sock);
+    string read() override;
     void write(string str) override;
     void end() override;
+    ~SocketIO() override = default;
 };
 
 #endif //SERVER_SIDE_SOCKETIO_H

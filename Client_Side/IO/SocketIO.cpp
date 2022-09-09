@@ -1,5 +1,5 @@
 //
-// Created by romrom4444 on 8/28/22.
+// Created by romrom4444 on 9/4/22.
 //
 
 #include <iostream>
@@ -15,38 +15,38 @@
 
 using namespace std;
 
-SocketIO::SocketIO(int server_sock, int client_sock) {
-    this->sock = server_sock;
-    this->client_sock = client_sock;
+SocketIO::SocketIO(int sock) {
+    this->sock = sock;
 }
 
 void SocketIO::write(string str) {
     size_t data_len = str.size();
     //sending data
-    ssize_t sent_bytes = send(client_sock, str.c_str(), data_len, 0);
+    ssize_t sent_bytes = send(sock, str.c_str(), data_len, 0);
     if (sent_bytes < 0) {
-        perror("error sending to client");
+        perror("error sending to server");
     }
 }
 
 string SocketIO::read() {
     char buffer[256] = {'\0'};
     int expected_data_len = sizeof(buffer);
-    ssize_t read_bytes = recv(client_sock, buffer, expected_data_len, 0);
+    ssize_t read_bytes = recv(sock, buffer, expected_data_len, 0);
     if (read_bytes < 0) {
-        perror("error reading from client");
+        perror("error reading from server");
     }
     string str;
     for (char c : buffer) {
         if (c) {
             str.append(&c);
-        } else {
+        }
+        else {
             break;
         }
     }
     return str;
 }
 
-void SocketIO::end() {
-    close(client_sock);
+void SocketIO::end() const {
+    close(sock);
 }

@@ -4,19 +4,6 @@
 
 #include "Command.h"
 
-void Command::execute() {
-    //should've overridden that.
-    throw exception();
-}
-
-string Command::getDescription() {
-    return this->description;
-}
-
-DefaultIO &Command::getIO() {
-    return this->io;
-}
-
-Command::Command(DefaultIO &io) {
+Command::Command(DefaultIO* io) : io(io) {
     this->io = io;
 }

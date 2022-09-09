@@ -12,8 +12,9 @@ using namespace std;
 
 class ChangeParameters : public Command {
 public:
-    void execute(int& k, Metric** metric) override;
+    void execute() override;
     explicit ChangeParameters(DefaultIO* io);
     ~ChangeParameters() override = default;
+    string getDescription() override;
 };
 #endif //SERVER_SIDE_CHANGEPARAMETERS_H

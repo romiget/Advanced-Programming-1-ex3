@@ -19,7 +19,7 @@ public:
     static Measurable createMeasurableFromClassified(const string& line);
     static Measurable createMeasurableFromUnclassified(string line);
     static void scan(const vector<Measurable>& measurables, fstream& fs, int k, Metric& func);
-    static void classify(Measurable& measured, const vector<Measurable>& measurables, fstream& euclid, int k, Metric& func);
+    static void classify(Measurable& measured, const vector<Measurable>& measurables, ofstream& euclid, int k, Metric& func);
     static string knnCheck(const vector<Measurable>& measurables);
 };
 #endif //ADVANCED_PROGRAMMING_1_FILEHANDLER_H

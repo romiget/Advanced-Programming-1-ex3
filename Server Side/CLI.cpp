@@ -10,34 +10,81 @@
 #include "Commands/SendClassificationFile.h"
 #include "Commands/ShowConfusionMatrix.h"
 #include "Commands/EndInteraction.h"
+#include <iostream>
 
 void CLI::init() {
-    commands.push_back(UploadFile(io));
-    commands.push_back(ChangeParameters(io));
-    commands.push_back(ClassifyFile(io));
-    commands.push_back(ShowClassifications(io));
-    commands.push_back(SendClassificationFile(io));
-    commands.push_back(ShowConfusionMatrix(io));
-    commands.push_back(EndInteraction(io));
+    // initializing the commands and putting them in a vector
+    // so that access to the commands is easy using an index variable.
+    auto* uploadFile = new UploadFile(io);
+    auto* changeParameters = new ChangeParameters(io);
+    auto* classifyFile = new ClassifyFile(io);
+    auto* showClassifications = new ShowClassifications(io);
+    auto* sendClassificationFile = new SendClassificationFile(io);
+    auto* showConfusionMatrix = new ShowConfusionMatrix(io);
+    auto* endInteraction = new EndInteraction(io);
+    commands.push_back(uploadFile);
+    commands.push_back(changeParameters);
+    commands.push_back(classifyFile);
+    commands.push_back(showClassifications);
+    commands.push_back(sendClassificationFile);
+    commands.push_back(showConfusionMatrix);
+    commands.push_back(endInteraction);
 }
 
 void CLI::start() {
     init();
     int choice = 0;
     while (choice != 7) {
-        string s = "Welcome to the KNN Classifier Server. Please choose an option:\n";
-        for (int i = 0; i < commands.size(); i++) {
-            s.append(to_string(i));
-            s.append(". ");
-            s.append((commands.begin() + i - 1)->getDescription());
-            s.append("\n");
-        }
-        io.write(s);
-        choice = stoi(io.read());
-        (commands.begin() + choice - 1)->execute();
+        choice = stoi(io->read());
+        commands[choice - 1]->execute(k, &metric);
     }
+    close();
 }
 
-CLI::CLI(DefaultIO& io) {
+CLI::CLI(DefaultIO* io) {
     this->io = io;
+    this->k = 5;
+    this->metric = new EuclideanMetric();
+}
+
+void CLI::close() {
+    delete io;
+    for (int i = (int) commands.size() - 1; i >= 0; i--) {
+        Command* temp = commands[i];
+        commands.pop_back();
+        delete temp;
+    }
+    delete metric;
+}
+
+int CLI::getK() const {
+    return this->k;
+}
+Metric* CLI::getMetric() {
+    return this->metric;
+}
+
+void CLI::setK(int k) {
+    this->k = k;
+}
+
+void CLI::setMetric(Metric &metric1) {
+    this->metric = &metric1;
+}
+
+void CLI::setMetric(string &name) {
+    if (name == "EUC") {
+        auto* euclideanMetric = new EuclideanMetric();
+        this->setMetric(*euclideanMetric);
+    }
+    else if (name == "MAN") {
+        auto* manhattanMetric = new ManhattanMetric();
+        this->setMetric(*manhattanMetric);
+    }
+    else if (name == "CHE") {
+        auto* chebyshevMetric = new ChebyshevMetric();
+        this->setMetric(*chebyshevMetric);
+    }
+    else
+        throw exception();
 }

@@ -1,23 +1,73 @@
 #include <iostream>
 #include <fstream>
 #include <sys/socket.h>
-#include <stdio.h>
+#include <cstdio>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include "KNN Algorithm/FileHandler.h"
-#include <exception>
-#include "Metrics/EuclideanMetric.h"
+#include <cstring>
+#include <algorithm>
+#include "IO/SocketIO.h"
+#include "CLI.h"
+#include <pthread.h>
+#include <stdio.h>
 
 using namespace std;
+
+vector<pid_t> threads;
+
+// struct for the thread function's arguments
+struct start_args {
+    int sock;
+    int client_sock;
+};
+
+void* start(void* args) {
+    // putting the thread in a vector for the timer thread to use
+    threads.push_back(gettid());
+
+    // running the program
+    struct start_args* arg = (struct start_args*) args;
+    auto io = new SocketIO(arg->sock, arg->client_sock);
+    CLI cli = CLI(io);
+    cli.start();
+
+    // setting the file names according to the current thread
+    const string data_file = "data" + to_string(gettid()) + ".csv";
+    const string unclassified_file = "unclassified" + to_string(gettid()) + ".csv";
+    const string output_file = "output" + to_string(gettid()) + ".csv";
+    const string test_file = "test" + to_string(gettid()) + ".csv";
+
+    // deleting all thread-specific files.
+    remove(data_file.c_str());
+    remove(unclassified_file.c_str());
+    remove(output_file.c_str());
+    remove(test_file.c_str());
+
+    // erasing the thread from the vector of active threads
+    threads.erase(find(threads.begin(), threads.end(), gettid()));
+
+    pthread_exit(NULL);
+}
+
+void* timer(void* useless) {
+    // checks every 10 seconds if there are still clients connected.
+    // if not, it closes the program (there wouldn't be allocated memory or
+    // open sockets since the threads handled that when they closed.
+    while(true) {
+        sleep(10);
+        if (threads.empty()) {
+            exit(0);
+        }
+    }
+}
+
 int main(int argc, char* argv[]) {
 
     //initializing socket
-    /*const string data = "cmake-build-debug/classified.csv";
     const int server_port = 1234;
     struct sockaddr_in sin;
+    pthread_t tid;
 
     int sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
@@ -26,7 +76,7 @@ int main(int argc, char* argv[]) {
     //memset
     memset(&sin, 0, sizeof(sin));
     sin.sin_family = AF_INET;
-    sin.sin_addr.s_addr = INADDR_ANY;
+    sin.sin_addr.s_addr = INADDR_ANY;The case where
     sin.sin_port = htons(server_port);
     //binding
     if (bind(sock, (struct sockaddr *) &sin, sizeof(sin)) < 0) {
@@ -39,47 +89,23 @@ int main(int argc, char* argv[]) {
     //accepting the client
     static struct sockaddr_in client_sin;
 
-    unsigned int addr_len = sizeof(client_sin);
-    int client_sock = accept(sock,  (struct sockaddr *) &client_sin,  &addr_len);
+    pthread_create(&tid, 0, &timer, NULL);
 
-    if (client_sock < 0) {
-        perror("couldn't accept connection");
+    unsigned int addr_len = sizeof(client_sin);
+    while(true) {
+        // accepting a client and creating a thread that handles that client
+        // so that we can continue accepting new clients while still answering
+        // the other clients.
+        int client_sock = accept(sock, (struct sockaddr *) &client_sin, &addr_len);
+
+        if (client_sock < 0) {
+            perror("couldn't accept connection");
+        }
+
+        struct start_args args;
+        args.sock = sock;
+        args.client_sock = client_sock;
+
+        pthread_create(&tid, 0, &start, &args);
     }
-    //entering a loop of sending and receiving messages until closing connection with the client.
-    while (true) {
-        try {
-            //trying to receive the data from the client
-            char buffer[256];
-            int expected_data_len = sizeof(buffer);
-            ssize_t read_bytes = recv(client_sock, buffer, expected_data_len, 0);
-            if (read_bytes == 0) {
-                close(sock);
-                return 0;
-            }
-            else if (read_bytes < 0) {
-                throw exception();
-            }
-            else {
-                //classifying
-                char* classification;
-                EuclideanMetric eum = EuclideanMetric();
-                Flower unclassified = FileHandler::createFlowerFromUnclassified(buffer);
-                vector<Flower> flowers = FileHandler::getFlowers( data); // segmentation fault happens here
-                fstream stream = fstream(data);
-                FileHandler::classify(unclassified, flowers,stream, 9, eum);
-                classification = &(unclassified.getType().front());
-                size_t data_len = strlen(classification);
-                //sending data
-                ssize_t sent_bytes = send(client_sock, classification, data_len, 0);
-                if (sent_bytes < 0) {
-                    throw exception();
-                }
-            }
-        }
-        catch (exception&) {
-            //closing connection
-            close(sock);
-            return 0;
-        }
-    }*/
 }
